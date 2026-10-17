@@ -82,18 +82,22 @@ def table_rows(which: str, lang: str) -> str:
             rows.append([_name(key, lang, unit=False), *cells, _num(g.loc["80"].bias, 1, lang, True)])
     elif which == "accept":
         t = pd.read_csv(RES / "table9_acceptability.csv")
-        conds = ["single camera (80 px, simulated)", "3 replays + bias correction (simulated)", "real video, 80 px"]
-        uses = {"en": ("norms", "ranking", "MAE", "ICC"), "es": ("normas", "ordenar", "EAM", "CCI")}[lang]
+        conds = ["single camera (80 px, simulated)", "3 replays + bias correction (simulated)",
+                 "adapted lifter, single camera (simulated)", "real video, 80 px", "adapted lifter, real video, 80 px"]
+        uses = {"en": ("norms", "ranking"), "es": ("normas", "ordenar")}[lang]
         for key in FEATURES:
             g = t[t.key == key].set_index("condition")
             cells = []
             for c in conds:
+                if c not in g.index:
+                    cells.append("n/a")
+                    continue
                 r = g.loc[c]
-                dec, unit = (2, " N·m/kg") if key.startswith("momento") else (1, "°")
+                dec, unit = (2, "") if key.startswith("momento") else (1, "°")
                 met = [u for u, ok in ((uses[0], str(r.use_lab_norms) == "True"), (uses[1], bool(r.use_ranking))) if ok]
                 head = "**" + " + ".join(met) + "**" if met else "—"
-                cells.append(f"{head} ({uses[2]} {_num(r.mae, dec, lang)}{unit}; {uses[3]} {_num(r.icc21, 2, lang)}, "
-                             f"{_num(max(r.icc_ci_low, 0), 2, lang)}–{_num(r.icc_ci_high, 2, lang)})")
+                near = r.icc21 < 0.75 <= round(r.icc21, 2)          # 0,749 no es «bueno»: se muestra con 3 cifras
+                cells.append(f"{head} ({_num(r.mae, dec, lang)}{unit}; {_num(r.icc21, 3 if near else 2, lang)})")
             rows.append([_name(key, lang), *cells])
     else:
         raise ValueError(f"tabla desconocida: {which}")

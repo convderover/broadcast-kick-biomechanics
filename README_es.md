@@ -39,6 +39,8 @@ ondas_movi.py + figuras_articulo.py → fig1_design (diseño), fig2_model (esque
     (todas las figuras salen en inglés en resultados/paper/ y en español en resultados/paper_es/)
 analisis_carga.py       → fig8_joint_load.png, table6_joint_load.csv, resumen_carga.json
 aceptabilidad.py        → table9_acceptability.csv (para qué uso sirve cada variable: criterios de la literatura y TOST)
+campo_videos.py + figuras_campo.py → ejemplo de campo con los golpeos del autor grabados con móvil
+                          (fig11_field, figS9, figS10, opciones de fotograma y vídeo 07; los vídeos originales no se suben)
 videos.py               → resultados/videos/*.mp4 (H.264)
 generar_documentos.py   → docs/manuscrito/manuscript.pdf/.docx (inglés), manuscrito_es.pdf/.docx (español),
                           docs/dossier/dossier_clubes.pdf

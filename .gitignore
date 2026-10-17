@@ -1,3 +1,6 @@
+# Vídeos originales del autor (imagen personal; no se suben sin decidirlo)
+videos/
+
 # Datos y modelos: licencias que no permiten redistribuirlos (se bajan con descargar_recursos.py y descargar_movi.py)
 datos/
 modelos/

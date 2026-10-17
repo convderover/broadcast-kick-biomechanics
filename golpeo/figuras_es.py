@@ -217,6 +217,18 @@ PHRASES = {
         "ruido 2D de retransmisión)",
     # Bland–Altman
     "Mean of lab and video (°)": "Media de laboratorio y vídeo (°)",
+    # ejemplo de campo
+    "Swing-leg joint load relative to this player's strongest kick": "Carga articular de la pierna de golpeo respecto a su golpeo más fuerte",
+    "1 (max)": "1 (máx.)",
+    "Swing-leg joint load\nrelative to this player's strongest kick": "Carga articular de la pierna de golpeo\nrespecto a su golpeo más fuerte",
+    "end of backswing": "final del armado", "peak hip-flexor load": "pico de carga flexora de cadera",
+    "ball contact": "contacto con el balón", "follow-through": "final del golpeo",
+    "Kicking-knee flexion (°)": "Flexión rodilla de golpeo (°)", "Kicking-hip flexion (°)": "Flexión cadera de golpeo (°)",
+    "Peak kicking-ankle speed (m/s)": "Velocidad máx. del tobillo de golpeo (m/s)",
+    "lab ball\nkicks": "balón en\nlaboratorio",
+    "diag.\nfront": "diag.\ndelante", "diag.\nbehind": "diag.\natrás",
+    "diagonal front": "diagonal delante", "diagonal behind": "diagonal atrás",
+    "kick": "golpeo", "strong": "fuerte", "soft": "suave", "native": "nativa", "front": "frente", "Kick": "Golpeo", "hip": "cadera", "knee": "rodilla",
     "Video − lab (°)": "Vídeo − laboratorio (°)",
     "bias": "sesgo",
     "LoA": "LdA",

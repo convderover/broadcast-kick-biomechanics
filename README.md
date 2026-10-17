@@ -15,8 +15,12 @@ A validation study, against optical motion capture, of the kicking biomechanics 
 - **Fitness for use** (literature-based criteria): from a single camera no variable is fit for comparison with laboratory norms, ranking players or monitoring an individual. Fusing three replays with a lab-learnt correction makes kicking-knee flexion fit for ranking players (ICC 0.80) and trunk leans comparable with lab norms (MAE < 5°); nothing can monitor individual changes.
 - **What matters and what does not:** camera view and knowing the contact instant matter (the connected ball's contact time cuts errors by 25 %); 50 versus 25 fps does not. Independent Gaussian noise overstates the error 1.05–1.8× with respect to real detector residuals.
 - **Digital twin:** simulating each real recording with its own camera geometry predicts the real-video error (r = 0.84, mean discrepancy 3.9°).
-- **Remedies:** fusing three replay angles raises hip-extension agreement from 0.40 to 0.78; a lifter fine-tuned on kicks under broadcast noise halves simulated errors (MPJPE −62 %) but degrades real ball kicks.
+- **Remedies:** fusing three replay angles raises hip-extension agreement from 0.40 to 0.78; a lifter fine-tuned on kicks under broadcast noise (tested on unseen participants and held-out broadcast residuals) cuts simulated errors from 14.7° to 8.3° and makes kicking-hip range of motion fit for ranking players on real 80-px video, but degrades real ball kicks.
 - **Joint load ("joint suffering") score:** valid in the laboratory (ρ = 0.79 with kick intensity) but not recoverable from broadcast-like video (reliability λ = 0.08). Validating it as an injury predictor would need about 590 kicking-related injuries (12–24 LaLiga seasons), against 48 with a laboratory-grade measurement.
+
+- **Field example** (the author's own ball kicks filmed with a smartphone, 13 kicks, 4 views): strong and soft kicks are told apart by ankle speed (12.0 vs 8.7 m/s) and posture from side and rear-diagonal views but not from the front, and inverse-dynamics loads from video are implausible — the same patterns as in the validation.
+
+![Field example: the author's kick with the skeleton overlay and the swing-leg load colour-coded](resultados/paper/fig11_field.png)
 
 ![Study design](resultados/paper/fig1_design.png)
 
@@ -30,7 +34,7 @@ A validation study, against optical motion capture, of the kicking biomechanics 
 | `docs/manuscrito/manuscrito_es.pdf` / `.docx` | Manuscript (Spanish) |
 | `docs/dossier/dossier_clubes.pdf` | Two-page summary for clubs (Spanish) |
 | `resultados/paper/`, `resultados/paper_es/` | All figures in English and Spanish, and the aggregated tables (`table*.csv`) |
-| `resultados/videos/` | Explanatory videos (H.264): summary, ball contact, virtual camera, 3D reconstruction, joint load |
+| `resultados/videos/` | Explanatory videos (H.264): summary, ball contact, virtual camera, 3D reconstruction, joint load, and the author's real kick in slow motion (07) |
 | `resultados/error2d_3dsp.csv` | **Broadcast 2D-residual bank** (numbers only, no images): reproduce broadcast noise without the 3DSP images |
 | `golpeo/` | Library: virtual camera, residual bank, lifter wrapper, kinematics, swing-leg inverse dynamics, agreement statistics |
 | `tests/` | 59 unit tests (`python -m pytest -q`) |
@@ -49,6 +53,7 @@ CMU (7 ball kicks, 120 Hz)   MoVi (83 participants, 3D + 2 calibrated video came
                          │
   informe_sensibilidad.py, analisis_carga.py, aceptabilidad.py (fitness for use, TOST),
   ondas_movi.py, figuras_articulo.py (incl. SPM of the waveforms) → figures and tables (EN + ES)
+  campo_videos.py, figuras_campo.py: field example with the author's smartphone kicks (videos not included)
   videos.py → videos · generar_documentos.py → PDF and Word documents
 ```
 

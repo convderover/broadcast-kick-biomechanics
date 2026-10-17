@@ -78,6 +78,18 @@ def conditions() -> dict[str, pd.DataFrame]:
     if real.exists():
         v = pd.read_csv(real)
         out["real video, 80 px"] = v[(~v.nativa) & (v.altura_px == 80) & (v.contacto == "conocido")]
+    # elevador adaptado (evaluar_ajuste.py): participantes no vistos y residuos de la mitad de prueba del banco
+    tuned = RES / "ajuste_sensibilidad.csv"
+    if tuned.exists():
+        s = pd.read_csv(tuned)
+        s = s[(s.dataset == "movi") & (s.elevador == "ajustado") & s.vista.isin((45, 90, 135))
+              & np.logical_and.reduce([s[k] == v for k, v in TYPICAL.items()])]
+        s = subject_level(s)
+        out["adapted lifter, single camera (simulated)"] = s.assign(sujeto=s.ensayo)
+    tuned_real = RES / "ajuste_video.csv"
+    if tuned_real.exists():
+        v = pd.read_csv(tuned_real)
+        out["adapted lifter, real video, 80 px"] = v[(~v.nativa) & (v.altura_px == 80) & (v.contacto == "conocido")]
     return out
 
 

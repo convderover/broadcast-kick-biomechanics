@@ -33,8 +33,9 @@ El balón conectado de LaLiga mide el balón; este trabajo mide **el cuerpo que 
 - **La frecuencia de imagen no es el problema** (25 frente a 50 fps: sin diferencia). Lo son el tamaño del jugador, el ángulo de cámara y saber cuándo toca el balón.
 - **El instante de contacto del balón conectado reduce el error un 25 %.** Cuerpo + xBALL es mejor que cualquiera de los dos por separado.
 - **El simulador está validado:** predice el error medido con imagen real (r = 0,84, ~4° de diferencia).
+- **Comprobado con golpeos reales:** con mis propios disparos grabados con un móvil, la velocidad del tobillo y la postura distinguen un golpeo fuerte de uno suave desde el lateral, pero no de frente.
 - **Adaptar el modelo 3D al golpeo:**
-  - **Con golpeos al aire:** reduce el error a la mitad en simulación y mejora 5 de 6 rasgos en vídeo real.
+  - **Con golpeos al aire:** baja el error de 14,7° a 8,3° en simulación y mejora 4 de 6 rasgos en vídeo real.
   - **Con golpeos reales con balón:** **empeora**.
   - **Lo que implica:** hacen falta golpeos de fútbol del propio club para entrenar y validar. Es la tercera prueba independiente de lo mismo.
 
