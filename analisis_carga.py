@@ -136,7 +136,7 @@ def main():
     table = pd.DataFrame(rows)
     table["feature"] = table.key.map(LOAD_SHORT)
     table["icc_class"] = table.icc21.map(koo_li)
-    table.round(3).to_csv(OUT / "table6_joint_load.csv", index=False)
+    table.round(4).to_csv(OUT / "table6_joint_load.csv", index=False)
 
     # 4. viabilidad de un estudio prospectivo de lesiones
     lam = np.linspace(0.02, 1.0, 300)

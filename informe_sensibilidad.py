@@ -292,7 +292,7 @@ def table_agreement(df):
                              **a, mae_ci_low=m_lo, mae_ci_high=m_hi, icc_ci_low=i_lo, icc_ci_high=i_hi,
                              icc_class=koo_li(a["icc21"])))
     t = pd.DataFrame(rows)
-    t.round(3).to_csv(OUT / "table3_agreement.csv", index=False)
+    t.round(4).to_csv(OUT / "table3_agreement.csv", index=False)
     return t
 
 
@@ -313,7 +313,7 @@ def fig_real_video():
     for (k, h), g in post.groupby(["rasgo", "height"]):
         rows.append(dict(rasgo=k, height=h, **agreement(g.referencia.to_numpy(), g.estimado.to_numpy())))
     tab = pd.DataFrame(rows)
-    tab.round(3).to_csv(OUT / "table4_real_video.csv", index=False)
+    tab.round(4).to_csv(OUT / "table4_real_video.csv", index=False)
     twin_path = RES / "gemelo_movi.csv"
     fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.9), gridspec_kw=dict(width_ratios=[1.35, 1]))
     a = axes[0]
@@ -339,7 +339,7 @@ def fig_real_video():
                                mae_real=pair.error_real.abs().mean(), n=len(pair),
                                r_err=pair[["error_sim", "error_real"]].corr().iat[0, 1]))
         twin = pd.DataFrame(merged)
-        twin.round(3).to_csv(OUT / "table5_digital_twin.csv", index=False)
+        twin.round(4).to_csv(OUT / "table5_digital_twin.csv", index=False)
         b = axes[1]
         lab = {"ninguno": "no 2D noise", "movi": "lab-video residuals", "3dsp": "broadcast residuals"}
         for i, (noise, g) in enumerate(twin.groupby("ruido")):
@@ -404,7 +404,7 @@ def fig_improvements(df):
         add("CMU ball kicks, lateral + MoVi calibration", k, gc.referencia,
             _calibrate_loso(gm.estimado.to_numpy(), gm.referencia.to_numpy(), None, gc.estimado.to_numpy()))
     t = pd.DataFrame(rows)
-    t.round(3).to_csv(OUT / "table7_improvements.csv", index=False)
+    t.round(4).to_csv(OUT / "table7_improvements.csv", index=False)
     methods = ["single view lateral", "single view lateral + bias correction", "3 replays (45°–135°)",
                "3 replays (45°–135°) + bias correction"]
     fig, axes = plt.subplots(1, 2, figsize=(7.2, 2.9), sharey=True)
@@ -471,7 +471,8 @@ def fig_traffic_light(lang="en"):
             v = float(cols[i].get(k, np.nan))
             cls = "good" if v >= 0.75 else "moderate" if v >= 0.5 else "poor"
             ax.add_patch(plt.Rectangle((j + 0.04, r + 0.06), 0.92, 0.88, color=STATUS[cls], alpha=0.9, lw=0))
-            txt = f"{v:.2f}".replace("-0.00", "0.00")
+            near = any(v < th <= round(v, 2) for th in (0.5, 0.75))   # p. ej. 0,747 no es «bueno»
+            txt = f"{v:.3f}" if near else f"{v:.2f}".replace("-0.00", "0.00")
             ax.text(j + 0.5, r + 0.42, txt.replace(".", ",") if lang == "es" else txt, ha="center", va="center",
                     fontsize=9, color="white", weight="bold")
             ax.text(j + 0.5, r + 0.72, L["cls"][cls], ha="center", va="center", fontsize=6.5, color="white")

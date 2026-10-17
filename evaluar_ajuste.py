@@ -90,7 +90,7 @@ def compare():
                              rasgo=k, **agreement(g.referencia.to_numpy(), g.estimado.to_numpy())))
     t = pd.DataFrame(rows)
     t["icc_class"] = t.icc21.map(koo_li)
-    t.round(3).to_csv(OUT / "table8_finetune.csv", index=False)
+    t.round(4).to_csv(OUT / "table8_finetune.csv", index=False)
     return t
 
 

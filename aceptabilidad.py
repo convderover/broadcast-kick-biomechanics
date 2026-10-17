@@ -103,7 +103,7 @@ def main():
             rows.append(dict(condition=cond, key=k, feature=NAMES[k].replace("\n", " "),
                              unit="N·m/kg" if k in LOAD_NAMES else "deg", **evaluate(g, k)))
     t = pd.DataFrame(rows)
-    t.round(3).to_csv(OUT / "table9_acceptability.csv", index=False)
+    t.round(4).to_csv(OUT / "table9_acceptability.csv", index=False)
     pd.set_option("display.width", 220)
     print(t[["condition", "key", "n_participants", "mae", "bias", "tost_p", "icc21", "icc_ci_low", "noise_to_swc",
              "use_lab_norms", "use_ranking", "use_monitoring"]].round(3).to_string())

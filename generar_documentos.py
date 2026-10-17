@@ -231,6 +231,49 @@ def package_outputs(out: Path):
     print("listo:", out.relative_to(ROOT))
 
 
+PREPRINT = [   # versión de preprint: sin huecos de DOI ni datos de envío a la revista
+    ("**Article type:** Original Investigation. **Running title:** Kick biomechanics from broadcast video. "
+     "**Word count (main text):** {{WORDS}}.",
+     "**Preprint, not peer reviewed.** **Running title:** Kick biomechanics from broadcast video."),
+    ("are available at {{REPO_URL}} **[PENDING: Zenodo DOI]**.", "are available at {{REPO_URL}}."),
+    ("under the MIT licence and archived at Zenodo **[PENDING: DOI]**. The complete statistical outputs are provided "
+     "as a supplementary file.",
+     "under the MIT licence; the complete statistical outputs are provided in the same repository."),
+    ("The broadcast residual bank and the aggregated results are deposited in Zenodo **[PENDING: DOI]**.",
+     "The broadcast residual bank and the aggregated results are deposited in the same repository."),
+    ("Supplementary file 1: GRRAS checklist. Supplementary file 2: complete statistical outputs (CSV and JSON). "
+     "Supplementary figures follow.",
+     "The GRRAS checklist and the complete statistical outputs (CSV and JSON) are available in the repository. "
+     "Supplementary figures follow."),
+    ("(checklist in the supplementary material)", "(checklist in the repository)"),
+    ("95 % confidence intervals are in Supplementary file 2.", "95 % confidence intervals are in the repository."),
+]
+
+
+def build_preprint():
+    """Preprint (SportRxiv) a partir del manuscrito en inglés: mismo texto, sin los huecos del envío."""
+    src = DOCS / "manuscrito" / "manuscript.md"
+    text = src.read_text(encoding="utf-8")
+    for a, b in PREPRINT:
+        if a not in text:
+            raise ValueError(f"no encuentro en el manuscrito: {a[:60]}")
+        text = text.replace(a, b)
+    if "PENDING" in text:
+        raise ValueError("quedan huecos [PENDING] en la versión de preprint")
+    name = "Martin-Gutierrez_2026_broadcast_kick_biomechanics_preprint"
+    tmp = DOCS / "manuscrito" / f"{name}.md"          # misma carpeta: rutas de figuras y bibliografía iguales
+    dest = DOCS / "preprint"
+    dest.mkdir(parents=True, exist_ok=True)
+    tmp.write_text(text, encoding="utf-8")
+    try:
+        build(tmp, PAPER_VARS, docx=False, lang="en")
+        _place(tmp.with_suffix(".pdf"), dest / f"{name}.pdf")
+    finally:
+        tmp.unlink(missing_ok=True)
+        tmp.with_suffix(".typ").unlink(missing_ok=True)
+        tmp.with_suffix(".pdf").unlink(missing_ok=True)
+
+
 def main():
     for md, lang in ((DOCS / "manuscrito" / "manuscript.md", "en"), (DOCS / "manuscrito" / "manuscrito_es.md", "es")):
         words = main_text_words(md.read_text(encoding="utf-8"), lang)
@@ -240,6 +283,7 @@ def main():
     for extra in ("cover_letter.md", "grras_checklist.md"):
         build(DOCS / "manuscrito" / extra, PAPER_VARS, lang="en")
     package_outputs(DOCS / "manuscrito" / "supplementary_file2_statistical_outputs.zip")
+    build_preprint()
     dossier = DOCS / "dossier" / "dossier_clubes.md"
     if dossier.exists():
         build(dossier, docx=False, template=DOCS / "dossier" / "plantilla.typ", lang="es")

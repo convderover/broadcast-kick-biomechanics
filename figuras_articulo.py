@@ -324,7 +324,7 @@ def fig_model(s, slow):
     ext = p[kn] + 0.4 * (p[kn] - p[hi]) / np.linalg.norm(p[kn] - p[hi])
     dashed(ax, p[kn], ext)
     mark_angle(ax, p[kn], ext - p[kn], p[an] - p[kn], 0.15, KICK,
-               f"kicking-knee\nflexion\n{knee_flexion(seq, side)[t]:.0f}°", (0.69, 0.2))
+               f"kicking\nknee\nflexion\n{knee_flexion(seq, side)[t]:.0f}°", (0.72, 0.2))
     # c · contacto, plano sagital
     t = s["c"]
     ax, p = skeleton_panel(2, t, "c  Ball contact")
@@ -466,7 +466,8 @@ def fig_recon(s, bank):
                 ax.set_xlim(-1.2, 1.0), ax.set_ylim(-0.1, 1.95)
                 clean(ax)
             if i == 0:
-                ax.set_title(f"{(t - c) * 1000 / fps:+.0f} ms".replace("-", "−"), fontsize=7.5)
+                dt = (t - c) * 1000 / fps
+                ax.set_title("0 ms" if round(dt) == 0 else f"{dt:+.0f} ms".replace("-", "−"), fontsize=7.5)
             if j == 0:
                 ax.text(-0.06, 0.5, rows[i], transform=ax.transAxes, ha="right", va="center", fontsize=7,
                         color=INK, linespacing=1.15)
