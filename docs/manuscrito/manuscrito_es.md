@@ -209,7 +209,7 @@ El autor declara que no tiene intereses en conflicto. El autor trabaja como inge
 
 # Declaración de uso de IA generativa
 
-Se usó IA generativa (Claude, de Anthropic, mediante Claude Code) como ayuda extensa para desarrollar el código de análisis, ejecutar y documentar los análisis, producir las figuras y redactar, editar y traducir al español el manuscrito. El autor revisó todo el código, los resultados y el texto, verificó los análisis y asume toda la responsabilidad del contenido.
+El autor concibió el estudio, definió sus objetivos y su alcance, decidió los análisis propuestos durante el trabajo, grabó el ejemplo de campo e interpretó los resultados. Se usó IA generativa (Claude, de Anthropic, mediante Claude Code) como asistente, bajo la dirección del autor, para escribir y ejecutar el código de análisis, producir las figuras y redactar, editar y traducir el texto del manuscrito. El autor revisó y verificó todo el código, los resultados y el texto, y asume toda la responsabilidad del contenido.
 
 # Disponibilidad de los datos
 

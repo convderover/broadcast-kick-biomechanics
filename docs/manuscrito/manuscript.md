@@ -206,7 +206,7 @@ The author reports there are no competing interests to declare. The author is em
 
 # Declaration of generative AI use
 
-Generative AI (Claude, Anthropic, used through Claude Code) assisted extensively with the development of the analysis code, the execution and documentation of the analyses, the production of the figures, and the drafting, editing and Spanish translation of the manuscript. The author reviewed all code, outputs and text, verified the analyses and takes full responsibility for the content.
+The author conceived the study, defined its aims and scope, decided on the analyses proposed during the work, recorded the field example and interpreted the results. Generative AI (Claude, Anthropic, used through Claude Code) was used as an assistant, under the author's direction, to write and run the analysis code, produce the figures, and draft, edit and translate the manuscript text. The author reviewed and verified all code, outputs and text and takes full responsibility for the content.
 
 # Data availability statement
 
