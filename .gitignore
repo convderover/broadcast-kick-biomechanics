@@ -1,5 +1,5 @@
 # Vídeos originales del autor (imagen personal; no se suben sin decidirlo)
-videos/
+/videos/
 
 # Datos y modelos: licencias que no permiten redistribuirlos (se bajan con descargar_recursos.py y descargar_movi.py)
 datos/
@@ -42,3 +42,6 @@ docs/plan_implementacion.md
 __pycache__/
 .pytest_cache/
 *.part
+
+# Copias de seguridad de ediciones hechas a mano en Word
+docs/manuscrito/version_usuario/
