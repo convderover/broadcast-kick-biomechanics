@@ -37,7 +37,7 @@ A validation study, against optical motion capture, of the kicking biomechanics 
 | `resultados/videos/` | Explanatory videos (H.264): summary, ball contact, virtual camera, 3D reconstruction, joint load, and the author's real kick in slow motion (07) |
 | `resultados/error2d_3dsp.csv` | **Broadcast 2D-residual bank** (numbers only, no images): reproduce broadcast noise without the 3DSP images |
 | `golpeo/` | Library: virtual camera, residual bank, lifter wrapper, kinematics, swing-leg inverse dynamics, agreement statistics |
-| `tests/` | 59 unit tests (`python -m pytest -q`) |
+| `tests/` | 63 unit tests (`python -m pytest -q`) |
 
 Pipeline:
 

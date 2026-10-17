@@ -20,7 +20,7 @@ El balón conectado de LaLiga mide el balón; este trabajo mide **el cuerpo que 
 - **Vídeo real con 3D sincronizada** y un **gemelo digital** que comprueba que el simulador acierta.
 - **Carga articular de la pierna de golpeo** (cadera y rodilla) por dinámica inversa, sin plataformas de fuerza.
 - **Tres remedios evaluados:** corrección de sesgos, fusión de repeticiones y un modelo 3D adaptado al golpeo con ruido de retransmisión.
-- **Código abierto y verificado:** 61 tests y protocolo publicable como banco de pruebas.
+- **Código abierto y verificado:** 63 tests y protocolo publicable como banco de pruebas.
 
 # Qué es fiable desde la tele
 
