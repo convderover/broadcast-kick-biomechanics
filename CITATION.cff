@@ -10,6 +10,8 @@ authors:
 version: "1.0.0"
 date-released: "2026-10-17"
 license: MIT
+repository-code: "https://github.com/convderover/broadcast-kick-biomechanics"
+url: "https://github.com/convderover/broadcast-kick-biomechanics"
 keywords:
   - football
   - soccer
