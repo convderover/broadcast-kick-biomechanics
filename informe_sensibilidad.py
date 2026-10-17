@@ -315,7 +315,7 @@ def fig_real_video():
     tab = pd.DataFrame(rows)
     tab.round(3).to_csv(OUT / "table4_real_video.csv", index=False)
     twin_path = RES / "gemelo_movi.csv"
-    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.0), gridspec_kw=dict(width_ratios=[1.35, 1]))
+    fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.9), gridspec_kw=dict(width_ratios=[1.35, 1]))
     a = axes[0]
     order = ["native", "120", "80", "50"]
     for i, k in enumerate(FEATURE_NAMES):
@@ -326,7 +326,7 @@ def fig_real_video():
     a.set_ylabel("MAE vs motion capture (°)")
     a.set_ylim(0, None)
     a.set_title(f"a  Real video (MoVi, {post.sujeto.nunique()} subjects × 2 cameras)", loc="left")
-    a.legend(fontsize=6.5, loc="upper left", ncol=2)
+    a.legend(fontsize=6.5, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2, frameon=False)
     twin = None
     if twin_path.exists():
         tw = pd.read_csv(twin_path)
@@ -352,7 +352,7 @@ def fig_real_video():
         b.set_xlabel("MAE predicted by simulation (°)")
         b.set_ylabel("MAE on real video (°)")
         b.set_title("b  Digital twin of each recording", loc="left")
-        b.legend(fontsize=6.5, loc="upper left")
+        b.legend(fontsize=6.5, loc="upper center", bbox_to_anchor=(0.5, -0.27), frameon=False)
     else:
         axes[1].axis("off")
     fig.tight_layout()

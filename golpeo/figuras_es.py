@@ -105,6 +105,9 @@ PHRASES = {
     "1 LaLiga season,": "1 temporada de LaLiga,",
     "inj./player": "les./jugador",
     "inverse\ndynamics\nfrom TV": "dinámica\ninversa\ndesde TV",
+    "inverse\ndynamics": "dinámica\ninversa",
+    "posture\nsurrogate": "sustituto\npostural",
+    "Injuries needed\n(α 0.05, power 0.8)": "Lesiones necesarias\n(α 0,05; potencia 0,8)",
     "posture\nsurrogate\nfrom TV": "sustituto\npostural\ndesde TV",
     # mejoras
     "a  Error": "a  Error",

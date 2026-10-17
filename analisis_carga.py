@@ -150,7 +150,7 @@ def main():
     summary["laliga_players"] = LALIGA_PLAYERS
 
     # figura
-    fig, axes = plt.subplots(1, 3, figsize=(7.6, 2.9))
+    fig, axes = plt.subplots(1, 3, figsize=(7.6, 3.5))
     a = axes[0]
     a.scatter(movi.v_tobillo_max, movi.momento_cadera_flexor_max, s=10, color=SERIES[0], alpha=0.8, label="MoVi (air kicks)")
     a.scatter(cmu.v_tobillo_max, cmu.momento_cadera_flexor_max, s=22, color=SERIES[1], marker="s", label="CMU (ball kicks)")
@@ -158,7 +158,7 @@ def main():
     a.set_xlabel("Peak kicking-ankle speed (m/s)")
     a.set_ylabel("Peak hip-flexor moment (N·m/kg)")
     a.set_title(f"a  Lab reference (ρ = {rho:.2f})", loc="left")
-    a.legend(fontsize=6.5, loc="upper left")
+    a.legend(fontsize=6.5, loc="upper center", bbox_to_anchor=(0.5, -0.25), frameon=False)
     b = axes[1]
     g = typical[(typical.dataset == "movi") & (typical.rasgo == "momento_cadera_flexor_max")]
     b.scatter(g.referencia, g.estimado, s=8, alpha=0.5, color=SERIES[0], label="virtual TV camera")
@@ -172,24 +172,26 @@ def main():
     b.set_title(f"b  From video: ICC = {a_h['icc21']:.2f}", loc="left")
     b.set_xlabel("Lab (N·m/kg)")
     b.set_ylabel("From 80-px video (N·m/kg)")
-    b.legend(fontsize=6.5, loc="upper left", markerscale=1.6)
+    b.legend(fontsize=6.5, loc="upper center", bbox_to_anchor=(0.5, -0.25), frameon=False, markerscale=1.6)
     c = axes[2]
     for i, hr in enumerate((1.3, 1.5, 2.0)):
         c.plot(lam, events_needed(hr, lam), color=SERIES[i], lw=1.8, label=f"HR = {hr} per SD")
         c.text(1.01, events_needed(hr, 1.0), f"HR {hr}", fontsize=6.5, color=INK2, va="center",
                )
-    for rate, ls in ((0.05, ":"), (0.10, "--")):
-        c.axhline(LALIGA_PLAYERS * rate, color=MUTED, ls=ls, lw=1)
-        c.text(0.99, LALIGA_PLAYERS * rate * 1.08, f"1 LaLiga season, {rate:.2f} inj./player",
-               ha="right", fontsize=6.5, color=INK2, transform=c.get_yaxis_transform())
+    seasons = []
+    for rate, ls in ((0.10, "--"), (0.05, ":")):
+        seasons += c.plot([0, 1], [LALIGA_PLAYERS * rate] * 2, color=MUTED, ls=ls, lw=1.1,
+                          label=f"1 LaLiga season, {rate:.2f} inj./player")
+    c.legend(handles=seasons, fontsize=6.5, loc="upper center", bbox_to_anchor=(0.5, -0.25), frameon=False)
     kli_tv = max(float(best_tv.get("kli", np.nan)), 0.02)
-    for x, txt in ((kli_tv, "inverse\ndynamics\nfrom TV"), (best_sur, "posture\nsurrogate\nfrom TV")):
+    for x, txt in ((kli_tv, "inverse\ndynamics"), (best_sur, "posture\nsurrogate")):
         c.axvline(x, color=INK, lw=0.9, ls="-" if x == kli_tv else "-.")
-        c.text(x + 0.015, 1500, f"{txt}\nλ = {x:.2f}", fontsize=6, color=INK, va="top")
+        c.text(x + 0.015, 4500, f"{txt}\nλ = {x:.2f}", fontsize=6, color=INK, va="top",
+               bbox=dict(fc="white", ec="none", alpha=0.85, pad=0.5))
     c.set_yscale("log")
     c.set_ylim(10, 5000)
     c.set_xlabel("Reliability λ of the score")
-    c.set_ylabel("Injuries needed (α 0.05, power 0.8)")
+    c.set_ylabel("Injuries needed\n(α 0.05, power 0.8)")
     c.set_title("c  Injury-study size", loc="left")
     c.set_xlim(0, 1.12)
     fig.tight_layout()
