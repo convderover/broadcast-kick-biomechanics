@@ -243,9 +243,9 @@ PREPRINT = [   # versión de preprint: sin huecos de DOI ni datos de envío a la
      "The broadcast residual bank and the aggregated results are deposited in the same repository."),
     ("Supplementary file 1: GRRAS checklist. Supplementary file 2: complete statistical outputs (CSV and JSON). "
      "Supplementary figures follow.",
-     "The GRRAS checklist and the complete statistical outputs (CSV and JSON) are available in the repository. "
+     "Supplementary Materials: GRRAS checklist. The complete statistical outputs (CSV and JSON) are available in the repository. "
      "Supplementary figures follow."),
-    ("(checklist in the supplementary material)", "(checklist in the repository)"),
+    ("(checklist in the supplementary material)", "(checklist in the supplementary materials)"),
     ("95 % confidence intervals are in Supplementary file 2.", "95 % confidence intervals are in the repository."),
 ]
 
@@ -268,6 +268,8 @@ def build_preprint():
     try:
         build(tmp, PAPER_VARS, docx=False, lang="en")
         _place(tmp.with_suffix(".pdf"), dest / f"{name}.pdf")
+        import shutil
+        shutil.copyfile(DOCS / "manuscrito" / "grras_checklist.pdf", dest / "Supplementary_Materials_GRRAS_checklist.pdf")
     finally:
         tmp.unlink(missing_ok=True)
         tmp.with_suffix(".typ").unlink(missing_ok=True)
