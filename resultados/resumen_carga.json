@@ -1,0 +1,384 @@
+{
+  "ref_mean_sd": {
+    "momento_cadera_flexor_max": [
+      0.708,
+      0.3
+    ],
+    "momento_rodilla_extensor_max": [
+      0.129,
+      0.112
+    ],
+    "momento_rodilla_flexor_max": [
+      0.064,
+      0.078
+    ]
+  },
+  "construct_movi": {
+    "momento_cadera_flexor_max": {
+      "spearman_rho": 0.5596742370177574,
+      "p": 3.787318487137861e-08
+    },
+    "momento_rodilla_extensor_max": {
+      "spearman_rho": 0.5791528483271062,
+      "p": 9.704122176019384e-09
+    },
+    "momento_rodilla_flexor_max": {
+      "spearman_rho": 0.5824902397044623,
+      "p": 7.615798420533274e-09
+    },
+    "kli": {
+      "spearman_rho": 0.7944880567566432,
+      "p": 3.1459924364653274e-19
+    }
+  },
+  "cmu_loads": {
+    "cmu_10_01": {
+      "momento_cadera_flexor_max": 1.008,
+      "momento_rodilla_extensor_max": 0.33,
+      "momento_rodilla_flexor_max": 0.893,
+      "kli": 4.473,
+      "v_tobillo_max": 10.191
+    },
+    "cmu_10_02": {
+      "momento_cadera_flexor_max": 1.672,
+      "momento_rodilla_extensor_max": 0.442,
+      "momento_rodilla_flexor_max": 1.175,
+      "kli": 6.743,
+      "v_tobillo_max": 11.372
+    },
+    "cmu_10_03": {
+      "momento_cadera_flexor_max": 1.274,
+      "momento_rodilla_extensor_max": 0.36,
+      "momento_rodilla_flexor_max": 1.322,
+      "kli": 6.685,
+      "v_tobillo_max": 11.73
+    },
+    "cmu_10_04": {
+      "momento_cadera_flexor_max": 0.428,
+      "momento_rodilla_extensor_max": 0.089,
+      "momento_rodilla_flexor_max": 0.118,
+      "kli": -0.197,
+      "v_tobillo_max": 4.121
+    },
+    "cmu_10_05": {
+      "momento_cadera_flexor_max": 1.532,
+      "momento_rodilla_extensor_max": 0.406,
+      "momento_rodilla_flexor_max": 1.11,
+      "kli": 6.205,
+      "v_tobillo_max": 11.163
+    },
+    "cmu_10_06": {
+      "momento_cadera_flexor_max": 1.466,
+      "momento_rodilla_extensor_max": 0.36,
+      "momento_rodilla_flexor_max": 1.166,
+      "kli": 6.233,
+      "v_tobillo_max": 11.74
+    },
+    "cmu_11_01": {
+      "momento_cadera_flexor_max": 2.003,
+      "momento_rodilla_extensor_max": 0.623,
+      "momento_rodilla_flexor_max": 0.971,
+      "kli": 6.785,
+      "v_tobillo_max": 13.113
+    }
+  },
+  "surrogate": {
+    "momento_cadera_flexor_max": {
+      "r2_loso_lab": 0.2485376369161768,
+      "r_loso_lab": 0.5077462353456687,
+      "tv_icc": 0.2821148846389119,
+      "tv_r": 0.28841417826949667,
+      "tv_calib_slope": 0.3547041956035109
+    },
+    "momento_rodilla_extensor_max": {
+      "r2_loso_lab": 0.1883044627065339,
+      "r_loso_lab": 0.4482525106003931,
+      "tv_icc": 0.20661307059154455,
+      "tv_r": 0.24162583169581173,
+      "tv_calib_slope": 0.3571047528609963
+    },
+    "momento_rodilla_flexor_max": {
+      "r2_loso_lab": 0.2517755020921022,
+      "r_loso_lab": 0.51815479545815,
+      "tv_icc": 0.2215753795693414,
+      "tv_r": 0.2485692437771854,
+      "tv_calib_slope": 0.29923602303654345
+    },
+    "kli": {
+      "r2_loso_lab": 0.3374389277469957,
+      "r_loso_lab": 0.5870781107035009,
+      "tv_icc": 0.27548761965996704,
+      "tv_r": 0.3026527775630583,
+      "tv_calib_slope": 0.3800024545686912
+    }
+  },
+  "feasibility": {
+    "1.3": {
+      "lab_events": 114.02453556243219,
+      "tv_kli_events": 1407.9231649616347
+    },
+    "1.5": {
+      "lab_events": 47.7420100459973,
+      "tv_kli_events": 589.4966513482277
+    },
+    "2.0": {
+      "lab_events": 16.336414814717727,
+      "tv_kli_events": 201.7146286684065
+    }
+  },
+  "laliga_players": 500,
+  "agreement": [
+    {
+      "source": "virtual camera (cmu), 80 px, 25 fps, 45–135°",
+      "key": "kli",
+      "mae": 3.127,
+      "bias": -2.762,
+      "icc21": 0.218,
+      "r": 0.634,
+      "calib_slope": 1.497
+    },
+    {
+      "source": "virtual camera (cmu), 80 px, 25 fps, 45–135°",
+      "key": "momento_cadera_flexor_max",
+      "mae": 0.427,
+      "bias": 0.049,
+      "icc21": 0.317,
+      "r": 0.309,
+      "calib_slope": 0.328
+    },
+    {
+      "source": "virtual camera (cmu), 80 px, 25 fps, 45–135°",
+      "key": "momento_rodilla_extensor_max",
+      "mae": 0.145,
+      "bias": -0.054,
+      "icc21": 0.37,
+      "r": 0.384,
+      "calib_slope": 0.395
+    },
+    {
+      "source": "virtual camera (cmu), 80 px, 25 fps, 45–135°",
+      "key": "momento_rodilla_flexor_max",
+      "mae": 0.638,
+      "bias": -0.622,
+      "icc21": 0.113,
+      "r": 0.583,
+      "calib_slope": 1.577
+    },
+    {
+      "source": "virtual camera (movi), 80 px, 25 fps, 45–135°",
+      "key": "kli",
+      "mae": 1.848,
+      "bias": 1.664,
+      "icc21": 0.09,
+      "r": 0.204,
+      "calib_slope": 0.081
+    },
+    {
+      "source": "virtual camera (movi), 80 px, 25 fps, 45–135°",
+      "key": "momento_cadera_flexor_max",
+      "mae": 0.627,
+      "bias": 0.541,
+      "icc21": 0.105,
+      "r": 0.225,
+      "calib_slope": 0.084
+    },
+    {
+      "source": "virtual camera (movi), 80 px, 25 fps, 45–135°",
+      "key": "momento_rodilla_extensor_max",
+      "mae": 0.173,
+      "bias": 0.111,
+      "icc21": 0.156,
+      "r": 0.246,
+      "calib_slope": 0.107
+    },
+    {
+      "source": "virtual camera (movi), 80 px, 25 fps, 45–135°",
+      "key": "momento_rodilla_flexor_max",
+      "mae": 0.211,
+      "bias": 0.172,
+      "icc21": 0.058,
+      "r": 0.144,
+      "calib_slope": 0.047
+    },
+    {
+      "source": "real video (MoVi), 120 px",
+      "key": "kli",
+      "mae": 1.081,
+      "bias": 0.823,
+      "icc21": 0.249,
+      "r": 0.373,
+      "calib_slope": 0.184
+    },
+    {
+      "source": "real video (MoVi), 120 px",
+      "key": "momento_cadera_flexor_max",
+      "mae": 0.352,
+      "bias": 0.111,
+      "icc21": 0.264,
+      "r": 0.369,
+      "calib_slope": 0.159
+    },
+    {
+      "source": "real video (MoVi), 120 px",
+      "key": "momento_rodilla_extensor_max",
+      "mae": 0.111,
+      "bias": 0.004,
+      "icc21": 0.383,
+      "r": 0.426,
+      "calib_slope": 0.265
+    },
+    {
+      "source": "real video (MoVi), 120 px",
+      "key": "momento_rodilla_flexor_max",
+      "mae": 0.179,
+      "bias": 0.161,
+      "icc21": 0.117,
+      "r": 0.268,
+      "calib_slope": 0.112
+    },
+    {
+      "source": "real video (MoVi), 50 px",
+      "key": "kli",
+      "mae": 1.461,
+      "bias": 1.148,
+      "icc21": 0.182,
+      "r": 0.332,
+      "calib_slope": 0.134
+    },
+    {
+      "source": "real video (MoVi), 50 px",
+      "key": "momento_cadera_flexor_max",
+      "mae": 0.502,
+      "bias": 0.225,
+      "icc21": 0.173,
+      "r": 0.305,
+      "calib_slope": 0.101
+    },
+    {
+      "source": "real video (MoVi), 50 px",
+      "key": "momento_rodilla_extensor_max",
+      "mae": 0.153,
+      "bias": 0.065,
+      "icc21": 0.233,
+      "r": 0.329,
+      "calib_slope": 0.147
+    },
+    {
+      "source": "real video (MoVi), 50 px",
+      "key": "momento_rodilla_flexor_max",
+      "mae": 0.189,
+      "bias": 0.165,
+      "icc21": 0.05,
+      "r": 0.123,
+      "calib_slope": 0.038
+    },
+    {
+      "source": "real video (MoVi), 80 px",
+      "key": "kli",
+      "mae": 1.237,
+      "bias": 0.961,
+      "icc21": 0.152,
+      "r": 0.256,
+      "calib_slope": 0.105
+    },
+    {
+      "source": "real video (MoVi), 80 px",
+      "key": "momento_cadera_flexor_max",
+      "mae": 0.385,
+      "bias": 0.127,
+      "icc21": 0.276,
+      "r": 0.389,
+      "calib_slope": 0.167
+    },
+    {
+      "source": "real video (MoVi), 80 px",
+      "key": "momento_rodilla_extensor_max",
+      "mae": 0.131,
+      "bias": 0.013,
+      "icc21": 0.212,
+      "r": 0.263,
+      "calib_slope": 0.133
+    },
+    {
+      "source": "real video (MoVi), 80 px",
+      "key": "momento_rodilla_flexor_max",
+      "mae": 0.202,
+      "bias": 0.183,
+      "icc21": 0.064,
+      "r": 0.166,
+      "calib_slope": 0.05
+    },
+    {
+      "source": "real video (MoVi), native",
+      "key": "kli",
+      "mae": 1.08,
+      "bias": 0.884,
+      "icc21": 0.311,
+      "r": 0.46,
+      "calib_slope": 0.266
+    },
+    {
+      "source": "real video (MoVi), native",
+      "key": "momento_cadera_flexor_max",
+      "mae": 0.305,
+      "bias": 0.1,
+      "icc21": 0.408,
+      "r": 0.489,
+      "calib_slope": 0.274
+    },
+    {
+      "source": "real video (MoVi), native",
+      "key": "momento_rodilla_extensor_max",
+      "mae": 0.099,
+      "bias": 0.006,
+      "icc21": 0.525,
+      "r": 0.541,
+      "calib_slope": 0.419
+    },
+    {
+      "source": "real video (MoVi), native",
+      "key": "momento_rodilla_flexor_max",
+      "mae": 0.19,
+      "bias": 0.177,
+      "icc21": 0.122,
+      "r": 0.301,
+      "calib_slope": 0.122
+    },
+    {
+      "source": "posture surrogate from TV postures (MoVi, 80 px, 25 fps, 45–135°)",
+      "key": "momento_cadera_flexor_max",
+      "mae": 0.236,
+      "bias": 0.023,
+      "icc21": 0.282,
+      "r": 0.288,
+      "calib_slope": 0.355
+    },
+    {
+      "source": "posture surrogate from TV postures (MoVi, 80 px, 25 fps, 45–135°)",
+      "key": "momento_rodilla_extensor_max",
+      "mae": 0.098,
+      "bias": 0.04,
+      "icc21": 0.207,
+      "r": 0.242,
+      "calib_slope": 0.357
+    },
+    {
+      "source": "posture surrogate from TV postures (MoVi, 80 px, 25 fps, 45–135°)",
+      "key": "momento_rodilla_flexor_max",
+      "mae": 0.071,
+      "bias": 0.033,
+      "icc21": 0.222,
+      "r": 0.249,
+      "calib_slope": 0.299
+    },
+    {
+      "source": "posture surrogate from TV postures (MoVi, 80 px, 25 fps, 45–135°)",
+      "key": "kli",
+      "mae": 0.681,
+      "bias": 0.286,
+      "icc21": 0.275,
+      "r": 0.303,
+      "calib_slope": 0.38
+    }
+  ]
+}

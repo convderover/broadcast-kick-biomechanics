@@ -1,0 +1,34 @@
+[
+ [
+  "90 golpeos de laboratorio\n200 disparos reales de la Premier",
+  "verdad con captura óptica · error real del detector en retransmisión"
+ ],
+ [
+  "El simulador acierta",
+  "predice el error medido con vídeo real (r = 0,84)"
+ ],
+ [
+  "25 o 50 fps: da igual",
+  "lo que importa es el ángulo de cámara, el tamaño del jugador\ny saber cuándo toca el balón"
+ ],
+ [
+  "Saber el instante de contacto\nreduce el error un 25 %",
+  "justo lo que mide el balón conectado (xBALL)"
+ ],
+ [
+  "3 repeticiones mejor que 1",
+  "extensión de cadera: fiabilidad entre jugadores de 0,40 a 0,78"
+ ],
+ [
+  "Modelo 3D adaptado al golpeo",
+  "error a la mitad en simulación · mejora en vídeo real\npero empeora con golpeos reales con balón: hacen falta datos de fútbol"
+ ],
+ [
+  "Índice de carga articular",
+  "en laboratorio crece con la intensidad del golpeo (ρ = 0,79)\ndesde la tele, hoy no es fiable (λ ≈ 0,08)"
+ ],
+ [
+  "¿Predecir lesiones?",
+  "con medida de laboratorio: ~48 lesiones para validarlo\ncon la medida actual de TV: ~590 (unas 12 temporadas de LaLiga)"
+ ]
+]

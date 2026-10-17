@@ -1,0 +1,21 @@
+# Versiones con las que se obtuvieron los resultados (Windows 11, Python 3.11.9, RTX 5060 Laptop, CUDA 12.8).
+# torch con CUDA:  pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cu128
+# rtmlib sin dependencias (su opencv-contrib choca con opencv-python):  pip install rtmlib==0.0.16 --no-deps
+numpy==2.4.4
+scipy==1.17.1
+pandas==3.0.2
+matplotlib==3.10.8
+scikit-learn==1.8.0
+opencv-python==4.14.0.94
+onnxruntime-gpu==1.23.2      # CUDA 12; la 1.31 pide CUDA 13 y cae a CPU
+timm==1.0.30
+einops==0.8.2
+ezc3d==1.7.2
+imageio-ffmpeg==0.6.0
+pillow==12.2.0
+pytest==9.1.1
+truststore==0.10.5           # solo si hay un proxy con certificado propio
+# documentos (manuscrito en PDF y Word)
+pypandoc_binary==1.17
+typst==0.15.0
+pypdf==6.12.2

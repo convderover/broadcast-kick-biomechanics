@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this code, the broadcast residual bank or the results, please cite it as below."
+title: "Kick biomechanics from broadcast video: a validation study of kinematics and swing-leg joint loads against optical motion capture"
+type: software
+authors:
+  - family-names: "Martín Gutiérrez"
+    given-names: "Roberto"
+    email: "convderover@gmail.com"
+    orcid: "https://orcid.org/0009-0004-5724-3502"
+version: "1.0.0"
+date-released: "2026-10-17"
+license: MIT
+keywords:
+  - football
+  - soccer
+  - biomechanics
+  - kicking
+  - broadcast video
+  - 3D human pose estimation
+  - inverse dynamics
+  - injury
+  - validation

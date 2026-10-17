@@ -1,0 +1,784 @@
+{
+  "contact": {
+    "contact_offset_ms_mean": -19.633345653488593,
+    "contact_offset_ms_min": -32.23164361791812,
+    "contact_offset_ms_max": -6.790335818960594,
+    "n_ball_kicks": 5,
+    "feature_change_max_deg": 2.0977631518092323
+  },
+  "error2d": {
+    "sigma_frac": 0.06314685729947105,
+    "sigma_floor_px": 3.885794831817259,
+    "n_2d_frames": 6000,
+    "n_2d_shots": 200,
+    "lr_swap_px": [
+      4.351148383881756,
+      16.580981149391267
+    ],
+    "lab_sigma_rel_pct": {
+      "50": 4.03,
+      "80": 3.41,
+      "120": 3.14,
+      "331": 2.54
+    },
+    "joint_error_pct": {
+      "hips": 5.6,
+      "knees": 8.17,
+      "ankles": 14.35,
+      "shoulders": 5.53,
+      "elbows": 9.16,
+      "wrists": 13.74
+    }
+  },
+  "n_kicks": {
+    "cmu": 7,
+    "movi": 83
+  },
+  "ablation": {
+    "ruido=sin_ruido": {
+      "rodilla_apoyo_flexion_contacto": 7.47,
+      "rodilla_golpeo_flexion_max": 15.15,
+      "cadera_golpeo_extension_max": 13.05,
+      "cadera_golpeo_rango": 13.64,
+      "tronco_inclinacion_sagital_contacto": 5.55,
+      "tronco_inclinacion_lateral_contacto": 3.17
+    },
+    "ruido=gauss": {
+      "rodilla_apoyo_flexion_contacto": 30.56,
+      "rodilla_golpeo_flexion_max": 21.95,
+      "cadera_golpeo_extension_max": 32.72,
+      "cadera_golpeo_rango": 42.8,
+      "tronco_inclinacion_sagital_contacto": 10.02,
+      "tronco_inclinacion_lateral_contacto": 9.79
+    },
+    "ruido=residuos": {
+      "rodilla_apoyo_flexion_contacto": 22.22,
+      "rodilla_golpeo_flexion_max": 20.88,
+      "cadera_golpeo_extension_max": 23.37,
+      "cadera_golpeo_rango": 23.77,
+      "tronco_inclinacion_sagital_contacto": 7.97,
+      "tronco_inclinacion_lateral_contacto": 6.43
+    },
+    "fps=50": {
+      "rodilla_apoyo_flexion_contacto": 20.73,
+      "rodilla_golpeo_flexion_max": 19.88,
+      "cadera_golpeo_extension_max": 22.63,
+      "cadera_golpeo_rango": 22.09,
+      "tronco_inclinacion_sagital_contacto": 8.31,
+      "tronco_inclinacion_lateral_contacto": 6.63
+    },
+    "fps=25": {
+      "rodilla_apoyo_flexion_contacto": 22.22,
+      "rodilla_golpeo_flexion_max": 20.88,
+      "cadera_golpeo_extension_max": 23.37,
+      "cadera_golpeo_rango": 23.77,
+      "tronco_inclinacion_sagital_contacto": 7.97,
+      "tronco_inclinacion_lateral_contacto": 6.43
+    },
+    "contacto=conocido": {
+      "rodilla_apoyo_flexion_contacto": 22.22,
+      "rodilla_golpeo_flexion_max": 20.88,
+      "cadera_golpeo_extension_max": 23.37,
+      "cadera_golpeo_rango": 23.77,
+      "tronco_inclinacion_sagital_contacto": 7.97,
+      "tronco_inclinacion_lateral_contacto": 6.43
+    },
+    "contacto=auto": {
+      "rodilla_apoyo_flexion_contacto": 23.38,
+      "rodilla_golpeo_flexion_max": 30.05,
+      "cadera_golpeo_extension_max": 33.41,
+      "cadera_golpeo_rango": 32.06,
+      "tronco_inclinacion_sagital_contacto": 10.24,
+      "tronco_inclinacion_lateral_contacto": 9.56
+    }
+  },
+  "intensity": {
+    "spearman_rho": 0.12375634943957013,
+    "p": 0.2649933749481988,
+    "per_feature_rho": {
+      "rodilla_apoyo_flexion_contacto": 0.231581377775912,
+      "rodilla_golpeo_flexion_max": 0.3455564417950548,
+      "cadera_golpeo_extension_max": -0.2951177532429369,
+      "cadera_golpeo_rango": 0.21991100289660379,
+      "tronco_inclinacion_sagital_contacto": -0.29981948700726246,
+      "tronco_inclinacion_lateral_contacto": 0.09644851181730404
+    },
+    "mean_ae_movi": 9.221090851484366,
+    "mean_ae_cmu": 15.001074783279543
+  },
+  "agreement_typical": {
+    "movi|replay (45–135°)|rodilla_apoyo_flexion_contacto": {
+      "mae": 20.415,
+      "bias": 15.597,
+      "loa_low": -25.623,
+      "loa_high": 56.817,
+      "icc21": 0.07,
+      "r": 0.144,
+      "calib_slope": 0.061,
+      "sdd": 58.294
+    },
+    "movi|replay (45–135°)|rodilla_golpeo_flexion_max": {
+      "mae": 16.545,
+      "bias": 2.95,
+      "loa_low": -41.178,
+      "loa_high": 47.078,
+      "icc21": 0.638,
+      "r": 0.649,
+      "calib_slope": 0.758,
+      "sdd": 62.406
+    },
+    "movi|replay (45–135°)|cadera_golpeo_extension_max": {
+      "mae": 15.725,
+      "bias": 1.213,
+      "loa_low": -40.889,
+      "loa_high": 43.314,
+      "icc21": 0.546,
+      "r": 0.56,
+      "calib_slope": 0.447,
+      "sdd": 59.54
+    },
+    "movi|replay (45–135°)|cadera_golpeo_rango": {
+      "mae": 18.019,
+      "bias": 2.687,
+      "loa_low": -55.327,
+      "loa_high": 60.701,
+      "icc21": 0.449,
+      "r": 0.491,
+      "calib_slope": 0.322,
+      "sdd": 82.044
+    },
+    "movi|replay (45–135°)|tronco_inclinacion_sagital_contacto": {
+      "mae": 7.074,
+      "bias": -1.559,
+      "loa_low": -19.908,
+      "loa_high": 16.789,
+      "icc21": 0.416,
+      "r": 0.452,
+      "calib_slope": 0.31,
+      "sdd": 25.949
+    },
+    "movi|replay (45–135°)|tronco_inclinacion_lateral_contacto": {
+      "mae": 7.02,
+      "bias": -4.301,
+      "loa_low": -19.904,
+      "loa_high": 11.301,
+      "icc21": 0.417,
+      "r": 0.481,
+      "calib_slope": 0.446,
+      "sdd": 22.065
+    },
+    "movi|replay (45–135°)|momento_cadera_flexor_max": {
+      "mae": 0.627,
+      "bias": 0.541,
+      "loa_low": -1.01,
+      "loa_high": 2.093,
+      "icc21": 0.105,
+      "r": 0.225,
+      "calib_slope": 0.084,
+      "sdd": 2.194
+    },
+    "movi|replay (45–135°)|momento_rodilla_extensor_max": {
+      "mae": 0.173,
+      "bias": 0.111,
+      "loa_low": -0.384,
+      "loa_high": 0.605,
+      "icc21": 0.156,
+      "r": 0.246,
+      "calib_slope": 0.107,
+      "sdd": 0.7
+    },
+    "movi|replay (45–135°)|momento_rodilla_flexor_max": {
+      "mae": 0.211,
+      "bias": 0.172,
+      "loa_low": -0.301,
+      "loa_high": 0.645,
+      "icc21": 0.058,
+      "r": 0.144,
+      "calib_slope": 0.047,
+      "sdd": 0.669
+    },
+    "movi|all|rodilla_apoyo_flexion_contacto": {
+      "mae": 24.464,
+      "bias": 20.237,
+      "loa_low": -23.895,
+      "loa_high": 64.37,
+      "icc21": 0.061,
+      "r": 0.153,
+      "calib_slope": 0.06,
+      "sdd": 62.413
+    },
+    "movi|all|rodilla_golpeo_flexion_max": {
+      "mae": 20.027,
+      "bias": 4.57,
+      "loa_low": -47.789,
+      "loa_high": 56.928,
+      "icc21": 0.504,
+      "r": 0.514,
+      "calib_slope": 0.577,
+      "sdd": 74.046
+    },
+    "movi|all|cadera_golpeo_extension_max": {
+      "mae": 20.652,
+      "bias": 5.837,
+      "loa_low": -49.818,
+      "loa_high": 61.492,
+      "icc21": 0.333,
+      "r": 0.365,
+      "calib_slope": 0.252,
+      "sdd": 78.709
+    },
+    "movi|all|cadera_golpeo_rango": {
+      "mae": 21.785,
+      "bias": 6.26,
+      "loa_low": -57.109,
+      "loa_high": 69.63,
+      "icc21": 0.379,
+      "r": 0.431,
+      "calib_slope": 0.27,
+      "sdd": 89.618
+    },
+    "movi|all|tronco_inclinacion_sagital_contacto": {
+      "mae": 7.937,
+      "bias": -1.79,
+      "loa_low": -21.952,
+      "loa_high": 18.371,
+      "icc21": 0.299,
+      "r": 0.328,
+      "calib_slope": 0.224,
+      "sdd": 28.513
+    },
+    "movi|all|tronco_inclinacion_lateral_contacto": {
+      "mae": 6.687,
+      "bias": -2.874,
+      "loa_low": -19.402,
+      "loa_high": 13.655,
+      "icc21": 0.474,
+      "r": 0.512,
+      "calib_slope": 0.414,
+      "sdd": 23.375
+    },
+    "movi|all|momento_cadera_flexor_max": {
+      "mae": 0.609,
+      "bias": 0.48,
+      "loa_low": -1.064,
+      "loa_high": 2.025,
+      "icc21": 0.115,
+      "r": 0.23,
+      "calib_slope": 0.086,
+      "sdd": 2.184
+    },
+    "movi|all|momento_rodilla_extensor_max": {
+      "mae": 0.181,
+      "bias": 0.096,
+      "loa_low": -0.409,
+      "loa_high": 0.602,
+      "icc21": 0.125,
+      "r": 0.19,
+      "calib_slope": 0.083,
+      "sdd": 0.715
+    },
+    "movi|all|momento_rodilla_flexor_max": {
+      "mae": 0.225,
+      "bias": 0.193,
+      "loa_low": -0.301,
+      "loa_high": 0.688,
+      "icc21": 0.05,
+      "r": 0.137,
+      "calib_slope": 0.042,
+      "sdd": 0.699
+    },
+    "cmu|replay (45–135°)|rodilla_apoyo_flexion_contacto": {
+      "mae": 9.084,
+      "bias": 2.244,
+      "loa_low": -20.964,
+      "loa_high": 25.452,
+      "icc21": 0.737,
+      "r": 0.756,
+      "calib_slope": 0.965,
+      "sdd": 32.821
+    },
+    "cmu|replay (45–135°)|rodilla_golpeo_flexion_max": {
+      "mae": 11.593,
+      "bias": 4.063,
+      "loa_low": -21.284,
+      "loa_high": 29.41,
+      "icc21": 0.331,
+      "r": 0.467,
+      "calib_slope": 0.203,
+      "sdd": 35.846
+    },
+    "cmu|replay (45–135°)|cadera_golpeo_extension_max": {
+      "mae": 23.399,
+      "bias": -22.21,
+      "loa_low": -66.727,
+      "loa_high": 22.308,
+      "icc21": 0.038,
+      "r": 0.124,
+      "calib_slope": 0.038,
+      "sdd": 62.957
+    },
+    "cmu|replay (45–135°)|cadera_golpeo_rango": {
+      "mae": 19.745,
+      "bias": -15.849,
+      "loa_low": -61.989,
+      "loa_high": 30.291,
+      "icc21": 0.431,
+      "r": 0.518,
+      "calib_slope": 0.476,
+      "sdd": 65.252
+    },
+    "cmu|replay (45–135°)|tronco_inclinacion_sagital_contacto": {
+      "mae": 4.664,
+      "bias": 4.087,
+      "loa_low": -4.796,
+      "loa_high": 12.97,
+      "icc21": 0.363,
+      "r": 0.591,
+      "calib_slope": 0.328,
+      "sdd": 12.562
+    },
+    "cmu|replay (45–135°)|tronco_inclinacion_lateral_contacto": {
+      "mae": 3.692,
+      "bias": 1.164,
+      "loa_low": -8.117,
+      "loa_high": 10.445,
+      "icc21": 0.105,
+      "r": 0.165,
+      "calib_slope": 0.06,
+      "sdd": 13.126
+    },
+    "cmu|replay (45–135°)|momento_cadera_flexor_max": {
+      "mae": 0.427,
+      "bias": 0.049,
+      "loa_low": -1.029,
+      "loa_high": 1.128,
+      "icc21": 0.317,
+      "r": 0.309,
+      "calib_slope": 0.328,
+      "sdd": 1.525
+    },
+    "cmu|replay (45–135°)|momento_rodilla_extensor_max": {
+      "mae": 0.145,
+      "bias": -0.054,
+      "loa_low": -0.377,
+      "loa_high": 0.269,
+      "icc21": 0.37,
+      "r": 0.384,
+      "calib_slope": 0.395,
+      "sdd": 0.457
+    },
+    "cmu|replay (45–135°)|momento_rodilla_flexor_max": {
+      "mae": 0.638,
+      "bias": -0.622,
+      "loa_low": -1.245,
+      "loa_high": 0.0,
+      "icc21": 0.113,
+      "r": 0.583,
+      "calib_slope": 1.577,
+      "sdd": 0.881
+    }
+  },
+  "improvements": {
+    "2 replays (45°+135°)": {
+      "rodilla_apoyo_flexion_contacto": {
+        "mae": 20.905,
+        "r": 0.268,
+        "icc21": 0.088
+      },
+      "rodilla_golpeo_flexion_max": {
+        "mae": 13.882,
+        "r": 0.794,
+        "icc21": 0.735
+      },
+      "cadera_golpeo_extension_max": {
+        "mae": 11.181,
+        "r": 0.678,
+        "icc21": 0.677
+      },
+      "cadera_golpeo_rango": {
+        "mae": 15.103,
+        "r": 0.592,
+        "icc21": 0.571
+      },
+      "tronco_inclinacion_sagital_contacto": {
+        "mae": 4.696,
+        "r": 0.636,
+        "icc21": 0.614
+      },
+      "tronco_inclinacion_lateral_contacto": {
+        "mae": 5.988,
+        "r": 0.61,
+        "icc21": 0.53
+      }
+    },
+    "2 replays (45°+135°) + bias correction": {
+      "rodilla_apoyo_flexion_contacto": {
+        "mae": 7.053,
+        "r": 0.181,
+        "icc21": 0.092
+      },
+      "rodilla_golpeo_flexion_max": {
+        "mae": 13.95,
+        "r": 0.782,
+        "icc21": 0.765
+      },
+      "cadera_golpeo_extension_max": {
+        "mae": 11.198,
+        "r": 0.653,
+        "icc21": 0.61
+      },
+      "cadera_golpeo_rango": {
+        "mae": 14.373,
+        "r": 0.511,
+        "icc21": 0.478
+      },
+      "tronco_inclinacion_sagital_contacto": {
+        "mae": 4.309,
+        "r": 0.611,
+        "icc21": 0.554
+      },
+      "tronco_inclinacion_lateral_contacto": {
+        "mae": 4.714,
+        "r": 0.581,
+        "icc21": 0.521
+      }
+    },
+    "3 replays (45°–135°)": {
+      "rodilla_apoyo_flexion_contacto": {
+        "mae": 16.812,
+        "r": 0.289,
+        "icc21": 0.122
+      },
+      "rodilla_golpeo_flexion_max": {
+        "mae": 12.685,
+        "r": 0.822,
+        "icc21": 0.759
+      },
+      "cadera_golpeo_extension_max": {
+        "mae": 9.375,
+        "r": 0.782,
+        "icc21": 0.778
+      },
+      "cadera_golpeo_rango": {
+        "mae": 13.5,
+        "r": 0.662,
+        "icc21": 0.655
+      },
+      "tronco_inclinacion_sagital_contacto": {
+        "mae": 4.328,
+        "r": 0.697,
+        "icc21": 0.681
+      },
+      "tronco_inclinacion_lateral_contacto": {
+        "mae": 5.734,
+        "r": 0.64,
+        "icc21": 0.525
+      }
+    },
+    "3 replays (45°–135°) + bias correction": {
+      "rodilla_apoyo_flexion_contacto": {
+        "mae": 6.959,
+        "r": 0.203,
+        "icc21": 0.11
+      },
+      "rodilla_golpeo_flexion_max": {
+        "mae": 12.311,
+        "r": 0.813,
+        "icc21": 0.8
+      },
+      "cadera_golpeo_extension_max": {
+        "mae": 9.326,
+        "r": 0.77,
+        "icc21": 0.749
+      },
+      "cadera_golpeo_rango": {
+        "mae": 12.862,
+        "r": 0.615,
+        "icc21": 0.581
+      },
+      "tronco_inclinacion_sagital_contacto": {
+        "mae": 3.803,
+        "r": 0.679,
+        "icc21": 0.639
+      },
+      "tronco_inclinacion_lateral_contacto": {
+        "mae": 4.591,
+        "r": 0.615,
+        "icc21": 0.563
+      }
+    },
+    "CMU ball kicks, lateral": {
+      "rodilla_apoyo_flexion_contacto": {
+        "mae": 4.817,
+        "r": 0.94,
+        "icc21": 0.942
+      },
+      "rodilla_golpeo_flexion_max": {
+        "mae": 13.876,
+        "r": 0.289,
+        "icc21": 0.232
+      },
+      "cadera_golpeo_extension_max": {
+        "mae": 7.109,
+        "r": 0.654,
+        "icc21": 0.568
+      },
+      "cadera_golpeo_rango": {
+        "mae": 5.88,
+        "r": 0.978,
+        "icc21": 0.938
+      },
+      "tronco_inclinacion_sagital_contacto": {
+        "mae": 2.988,
+        "r": 0.667,
+        "icc21": 0.582
+      },
+      "tronco_inclinacion_lateral_contacto": {
+        "mae": 4.166,
+        "r": -0.414,
+        "icc21": -0.286
+      }
+    },
+    "CMU ball kicks, lateral + MoVi calibration": {
+      "rodilla_apoyo_flexion_contacto": {
+        "mae": 31.238,
+        "r": 0.94,
+        "icc21": 0.053
+      },
+      "rodilla_golpeo_flexion_max": {
+        "mae": 13.694,
+        "r": 0.289,
+        "icc21": 0.23
+      },
+      "cadera_golpeo_extension_max": {
+        "mae": 27.753,
+        "r": 0.654,
+        "icc21": 0.082
+      },
+      "cadera_golpeo_rango": {
+        "mae": 20.319,
+        "r": 0.978,
+        "icc21": 0.528
+      },
+      "tronco_inclinacion_sagital_contacto": {
+        "mae": 8.94,
+        "r": 0.667,
+        "icc21": 0.12
+      },
+      "tronco_inclinacion_lateral_contacto": {
+        "mae": 8.1,
+        "r": -0.414,
+        "icc21": -0.031
+      }
+    },
+    "single view 45°": {
+      "rodilla_apoyo_flexion_contacto": {
+        "mae": 34.743,
+        "r": 0.141,
+        "icc21": 0.025
+      },
+      "rodilla_golpeo_flexion_max": {
+        "mae": 18.455,
+        "r": 0.759,
+        "icc21": 0.614
+      },
+      "cadera_golpeo_extension_max": {
+        "mae": 19.319,
+        "r": 0.432,
+        "icc21": 0.405
+      },
+      "cadera_golpeo_rango": {
+        "mae": 20.367,
+        "r": 0.398,
+        "icc21": 0.324
+      },
+      "tronco_inclinacion_sagital_contacto": {
+        "mae": 6.744,
+        "r": 0.52,
+        "icc21": 0.476
+      },
+      "tronco_inclinacion_lateral_contacto": {
+        "mae": 6.563,
+        "r": 0.625,
+        "icc21": 0.552
+      }
+    },
+    "single view 45° + bias correction": {
+      "rodilla_apoyo_flexion_contacto": {
+        "mae": 7.312,
+        "r": -0.035,
+        "icc21": -0.01
+      },
+      "rodilla_golpeo_flexion_max": {
+        "mae": 15.319,
+        "r": 0.744,
+        "icc21": 0.721
+      },
+      "cadera_golpeo_extension_max": {
+        "mae": 14.344,
+        "r": 0.333,
+        "icc21": 0.255
+      },
+      "cadera_golpeo_rango": {
+        "mae": 17.519,
+        "r": 0.26,
+        "icc21": 0.235
+      },
+      "tronco_inclinacion_sagital_contacto": {
+        "mae": 4.659,
+        "r": 0.472,
+        "icc21": 0.392
+      },
+      "tronco_inclinacion_lateral_contacto": {
+        "mae": 4.613,
+        "r": 0.599,
+        "icc21": 0.542
+      }
+    },
+    "single view lateral": {
+      "rodilla_apoyo_flexion_contacto": {
+        "mae": 12.896,
+        "r": 0.174,
+        "icc21": 0.137
+      },
+      "rodilla_golpeo_flexion_max": {
+        "mae": 13.731,
+        "r": 0.75,
+        "icc21": 0.722
+      },
+      "cadera_golpeo_extension_max": {
+        "mae": 13.365,
+        "r": 0.708,
+        "icc21": 0.699
+      },
+      "cadera_golpeo_rango": {
+        "mae": 16.826,
+        "r": 0.601,
+        "icc21": 0.583
+      },
+      "tronco_inclinacion_sagital_contacto": {
+        "mae": 5.851,
+        "r": 0.574,
+        "icc21": 0.557
+      },
+      "tronco_inclinacion_lateral_contacto": {
+        "mae": 7.085,
+        "r": 0.403,
+        "icc21": 0.338
+      }
+    },
+    "single view lateral + bias correction": {
+      "rodilla_apoyo_flexion_contacto": {
+        "mae": 7.136,
+        "r": 0.021,
+        "icc21": 0.008
+      },
+      "rodilla_golpeo_flexion_max": {
+        "mae": 14.231,
+        "r": 0.736,
+        "icc21": 0.709
+      },
+      "cadera_golpeo_extension_max": {
+        "mae": 11.209,
+        "r": 0.689,
+        "icc21": 0.653
+      },
+      "cadera_golpeo_rango": {
+        "mae": 14.185,
+        "r": 0.576,
+        "icc21": 0.512
+      },
+      "tronco_inclinacion_sagital_contacto": {
+        "mae": 4.511,
+        "r": 0.537,
+        "icc21": 0.469
+      },
+      "tronco_inclinacion_lateral_contacto": {
+        "mae": 5.329,
+        "r": 0.336,
+        "icc21": 0.238
+      }
+    }
+  },
+  "best_case_mae": {
+    "cadera_golpeo_extension_max": 10.96,
+    "cadera_golpeo_rango": 14.22,
+    "rodilla_apoyo_flexion_contacto": 11.72,
+    "rodilla_golpeo_flexion_max": 12.53,
+    "tronco_inclinacion_lateral_contacto": 5.29,
+    "tronco_inclinacion_sagital_contacto": 5.85
+  },
+  "real_video_mae": {
+    "120": {
+      "cadera_golpeo_extension_max": 23.66,
+      "cadera_golpeo_rango": 15.52,
+      "rodilla_apoyo_flexion_contacto": 11.43,
+      "rodilla_golpeo_flexion_max": 18.37,
+      "tronco_inclinacion_lateral_contacto": 3.75,
+      "tronco_inclinacion_sagital_contacto": 13.46
+    },
+    "50": {
+      "cadera_golpeo_extension_max": 25.92,
+      "cadera_golpeo_rango": 17.68,
+      "rodilla_apoyo_flexion_contacto": 12.76,
+      "rodilla_golpeo_flexion_max": 24.52,
+      "tronco_inclinacion_lateral_contacto": 4.36,
+      "tronco_inclinacion_sagital_contacto": 13.37
+    },
+    "80": {
+      "cadera_golpeo_extension_max": 24.08,
+      "cadera_golpeo_rango": 15.46,
+      "rodilla_apoyo_flexion_contacto": 12.48,
+      "rodilla_golpeo_flexion_max": 20.33,
+      "tronco_inclinacion_lateral_contacto": 3.82,
+      "tronco_inclinacion_sagital_contacto": 13.57
+    },
+    "native": {
+      "cadera_golpeo_extension_max": 22.4,
+      "cadera_golpeo_rango": 16.01,
+      "rodilla_apoyo_flexion_contacto": 10.26,
+      "rodilla_golpeo_flexion_max": 16.51,
+      "tronco_inclinacion_lateral_contacto": 3.53,
+      "tronco_inclinacion_sagital_contacto": 13.06
+    }
+  },
+  "real_video_icc": {
+    "120": {
+      "cadera_golpeo_extension_max": 0.419,
+      "cadera_golpeo_rango": 0.679,
+      "rodilla_apoyo_flexion_contacto": 0.391,
+      "rodilla_golpeo_flexion_max": 0.611,
+      "tronco_inclinacion_lateral_contacto": 0.728,
+      "tronco_inclinacion_sagital_contacto": 0.162
+    },
+    "50": {
+      "cadera_golpeo_extension_max": 0.291,
+      "cadera_golpeo_rango": 0.571,
+      "rodilla_apoyo_flexion_contacto": 0.243,
+      "rodilla_golpeo_flexion_max": 0.483,
+      "tronco_inclinacion_lateral_contacto": 0.63,
+      "tronco_inclinacion_sagital_contacto": 0.163
+    },
+    "80": {
+      "cadera_golpeo_extension_max": 0.385,
+      "cadera_golpeo_rango": 0.674,
+      "rodilla_apoyo_flexion_contacto": 0.27,
+      "rodilla_golpeo_flexion_max": 0.559,
+      "tronco_inclinacion_lateral_contacto": 0.712,
+      "tronco_inclinacion_sagital_contacto": 0.154
+    },
+    "native": {
+      "cadera_golpeo_extension_max": 0.484,
+      "cadera_golpeo_rango": 0.675,
+      "rodilla_apoyo_flexion_contacto": 0.454,
+      "rodilla_golpeo_flexion_max": 0.625,
+      "tronco_inclinacion_lateral_contacto": 0.773,
+      "tronco_inclinacion_sagital_contacto": 0.177
+    }
+  },
+  "digital_twin_r": {
+    "3dsp": 0.33354692416051057,
+    "movi": 0.8383831033738892,
+    "ninguno": 0.7320595523052053
+  }
+}

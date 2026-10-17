@@ -1,0 +1,29 @@
+source,key,n,bias,mae,rmse,loa_low,loa_high,r,icc21,calib_slope,sdd,feature,icc_class
+"virtual camera (cmu), 80 px, 25 fps, 45–135°",kli,21,-2.762,3.127,3.346,-6.553,1.028,0.634,0.218,1.497,5.361,Kick Load Index,poor
+"virtual camera (cmu), 80 px, 25 fps, 45–135°",momento_cadera_flexor_max,21,0.049,0.427,0.539,-1.029,1.128,0.309,0.317,0.328,1.525,hip-flexor moment,poor
+"virtual camera (cmu), 80 px, 25 fps, 45–135°",momento_rodilla_extensor_max,21,-0.054,0.145,0.17,-0.377,0.269,0.384,0.37,0.395,0.457,knee-extensor moment,poor
+"virtual camera (cmu), 80 px, 25 fps, 45–135°",momento_rodilla_flexor_max,21,-0.622,0.638,0.695,-1.245,0.0,0.583,0.113,1.577,0.881,knee-flexor moment,poor
+"virtual camera (movi), 80 px, 25 fps, 45–135°",kli,249,1.664,1.848,2.656,-2.401,5.729,0.204,0.09,0.081,5.749,Kick Load Index,poor
+"virtual camera (movi), 80 px, 25 fps, 45–135°",momento_cadera_flexor_max,249,0.541,0.627,0.958,-1.01,2.093,0.225,0.105,0.084,2.194,hip-flexor moment,poor
+"virtual camera (movi), 80 px, 25 fps, 45–135°",momento_rodilla_extensor_max,249,0.111,0.173,0.275,-0.384,0.605,0.246,0.156,0.107,0.7,knee-extensor moment,poor
+"virtual camera (movi), 80 px, 25 fps, 45–135°",momento_rodilla_flexor_max,249,0.172,0.211,0.296,-0.301,0.645,0.144,0.058,0.047,0.669,knee-flexor moment,poor
+"real video (MoVi), 120 px",kli,162,0.823,1.081,1.767,-2.249,3.896,0.373,0.249,0.184,4.346,Kick Load Index,poor
+"real video (MoVi), 120 px",momento_cadera_flexor_max,162,0.111,0.352,0.655,-1.158,1.379,0.369,0.264,0.159,1.794,hip-flexor moment,poor
+"real video (MoVi), 120 px",momento_rodilla_extensor_max,162,0.004,0.111,0.167,-0.324,0.332,0.426,0.383,0.265,0.464,knee-extensor moment,poor
+"real video (MoVi), 120 px",momento_rodilla_flexor_max,162,0.161,0.179,0.243,-0.197,0.519,0.268,0.117,0.112,0.506,knee-flexor moment,poor
+"real video (MoVi), 50 px",kli,162,1.148,1.461,2.254,-2.667,4.962,0.332,0.182,0.134,5.394,Kick Load Index,poor
+"real video (MoVi), 50 px",momento_cadera_flexor_max,162,0.225,0.502,0.891,-1.47,1.921,0.305,0.173,0.101,2.398,hip-flexor moment,poor
+"real video (MoVi), 50 px",momento_rodilla_extensor_max,162,0.065,0.153,0.247,-0.403,0.534,0.329,0.233,0.147,0.663,knee-extensor moment,poor
+"real video (MoVi), 50 px",momento_rodilla_flexor_max,162,0.165,0.189,0.302,-0.332,0.662,0.123,0.05,0.038,0.703,knee-flexor moment,poor
+"real video (MoVi), 80 px",kli,162,0.961,1.237,2.189,-2.907,4.828,0.256,0.152,0.105,5.469,Kick Load Index,poor
+"real video (MoVi), 80 px",momento_cadera_flexor_max,162,0.127,0.385,0.654,-1.135,1.389,0.389,0.276,0.167,1.785,hip-flexor moment,poor
+"real video (MoVi), 80 px",momento_rodilla_extensor_max,162,0.013,0.131,0.222,-0.422,0.448,0.263,0.212,0.133,0.615,knee-extensor moment,poor
+"real video (MoVi), 80 px",momento_rodilla_flexor_max,162,0.183,0.202,0.316,-0.322,0.689,0.166,0.064,0.05,0.715,knee-flexor moment,poor
+"real video (MoVi), native",kli,162,0.884,1.08,1.557,-1.637,3.405,0.46,0.311,0.266,3.565,Kick Load Index,poor
+"real video (MoVi), native",momento_cadera_flexor_max,162,0.1,0.305,0.477,-0.818,1.018,0.489,0.408,0.274,1.298,hip-flexor moment,poor
+"real video (MoVi), native",momento_rodilla_extensor_max,162,0.006,0.099,0.126,-0.243,0.254,0.541,0.525,0.419,0.351,knee-extensor moment,moderate
+"real video (MoVi), native",momento_rodilla_flexor_max,162,0.177,0.19,0.256,-0.186,0.54,0.301,0.122,0.122,0.513,knee-flexor moment,poor
+"posture surrogate from TV postures (MoVi, 80 px, 25 fps, 45–135°)",momento_cadera_flexor_max,249,0.023,0.236,0.326,-0.616,0.663,0.288,0.282,0.355,0.904,hip-flexor moment,poor
+"posture surrogate from TV postures (MoVi, 80 px, 25 fps, 45–135°)",momento_rodilla_extensor_max,249,0.04,0.098,0.125,-0.192,0.272,0.242,0.207,0.357,0.328,knee-extensor moment,poor
+"posture surrogate from TV postures (MoVi, 80 px, 25 fps, 45–135°)",momento_rodilla_flexor_max,249,0.033,0.071,0.094,-0.139,0.205,0.249,0.222,0.299,0.244,knee-flexor moment,poor
+"posture surrogate from TV postures (MoVi, 80 px, 25 fps, 45–135°)",kli,249,0.286,0.681,0.928,-1.448,2.02,0.303,0.275,0.38,2.453,Kick Load Index,poor

@@ -1,0 +1,41 @@
+# Datos y modelos: licencias que no permiten redistribuirlos (se bajan con descargar_recursos.py y descargar_movi.py)
+datos/
+modelos/
+
+# Material con derechos de imagen (retransmisiones) o de licencia no comercial
+resultados/**/*USO_INTERNO*
+resultados/fig7_3dsp_real_vs_rtmw.png
+resultados/videos/05_video_real_movi.mp4
+resultados/descarga_movi_video.log
+
+# Resultados por participante derivados de MoVi (licencia no comercial: no se ceden a terceros).
+# Se regeneran con los scripts; en el repositorio solo van tablas agregadas.
+resultados/sensibilidad.csv
+resultados/ensayos.csv
+resultados/video_movi*.csv
+resultados/gemelo_movi.csv
+resultados/ajuste_*.csv
+resultados/ondas_movi.npz
+resultados/_*
+resultados/*_consola.txt
+resultados/ajuste_fold*.txt
+
+# Intermedios de compilación de los documentos
+docs/manuscrito/*.typ
+docs/dossier/dossier_clubes.typ
+*_resuelto.md
+*_nuevo.pdf
+*_tmp.pdf
+*_tmp.docx
+
+# Notas de trabajo personales
+CONTEXTO_PARA_IA.md
+RESUMEN_FINAL.md
+docs/difusion.md
+docs/articulo_borrador.md
+docs/especificacion.md
+docs/plan_implementacion.md
+
+__pycache__/
+.pytest_cache/
+*.part

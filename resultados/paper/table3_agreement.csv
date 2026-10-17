@@ -1,0 +1,28 @@
+dataset,views,feature,key,unit,gt_mean,gt_sd,n,bias,mae,rmse,loa_low,loa_high,r,icc21,calib_slope,sdd,mae_ci_low,mae_ci_high,icc_ci_low,icc_ci_high,icc_class
+movi,replay (45–135°),Support-knee flexion at contact,rodilla_apoyo_flexion_contacto,deg,34.103,8.763,249,15.597,20.415,26.149,-25.623,56.817,0.144,0.07,0.061,58.294,18.759,22.058,0.018,0.127,poor
+movi,replay (45–135°),Kicking-knee peak flexion,rodilla_golpeo_flexion_max,deg,90.71,28.652,249,2.95,16.545,22.662,-41.178,47.078,0.649,0.638,0.758,62.406,14.623,18.79,0.548,0.709,moderate
+movi,replay (45–135°),Kicking-hip peak extension,cadera_golpeo_extension_max,deg,-30.856,19.975,249,1.213,15.725,21.471,-40.889,43.314,0.56,0.546,0.447,59.54,13.94,17.602,0.392,0.679,moderate
+movi,replay (45–135°),Kicking-hip range of motion,cadera_golpeo_rango,deg,58.332,22.005,249,2.687,18.019,29.661,-55.327,60.701,0.491,0.449,0.322,82.044,15.449,21.114,0.308,0.631,poor
+movi,replay (45–135°),Trunk sagittal lean at contact,tronco_inclinacion_sagital_contacto,deg,8.966,6.993,249,-1.559,7.074,9.472,-19.908,16.789,0.452,0.416,0.31,25.949,6.302,7.961,0.276,0.541,poor
+movi,replay (45–135°),Trunk lateral lean at contact,tronco_inclinacion_lateral_contacto,deg,6.121,7.537,249,-4.301,7.02,9.034,-19.904,11.301,0.481,0.417,0.446,22.065,6.147,7.864,0.324,0.506,poor
+movi,replay (45–135°),Peak hip-flexor moment,momento_cadera_flexor_max,N·m/kg,0.708,0.3,249,0.541,0.627,0.958,-1.01,2.093,0.225,0.105,0.084,2.194,0.543,0.722,0.057,0.173,poor
+movi,replay (45–135°),Peak knee-extensor moment,momento_rodilla_extensor_max,N·m/kg,0.129,0.112,249,0.111,0.173,0.275,-0.384,0.605,0.246,0.156,0.107,0.7,0.15,0.202,0.045,0.298,poor
+movi,replay (45–135°),Peak knee-flexor moment (pre-contact),momento_rodilla_flexor_max,N·m/kg,0.064,0.078,249,0.172,0.211,0.296,-0.301,0.645,0.144,0.058,0.047,0.669,0.185,0.241,-0.002,0.123,poor
+movi,all,Support-knee flexion at contact,rodilla_apoyo_flexion_contacto,deg,34.103,8.763,415,20.237,24.464,30.254,-23.895,64.37,0.153,0.061,0.06,62.413,23.03,25.883,0.03,0.094,poor
+movi,all,Kicking-knee peak flexion,rodilla_golpeo_flexion_max,deg,90.71,28.652,415,4.57,20.027,27.07,-47.789,56.928,0.514,0.504,0.577,74.046,17.968,22.496,0.397,0.588,moderate
+movi,all,Kicking-hip peak extension,cadera_golpeo_extension_max,deg,-30.856,19.975,415,5.837,20.652,28.956,-49.818,61.492,0.365,0.333,0.252,78.709,18.965,22.559,0.222,0.446,poor
+movi,all,Kicking-hip range of motion,cadera_golpeo_rango,deg,58.332,22.005,415,6.26,21.785,32.894,-57.109,69.63,0.431,0.379,0.27,89.618,19.731,24.097,0.267,0.496,poor
+movi,all,Trunk sagittal lean at contact,tronco_inclinacion_sagital_contacto,deg,8.966,6.993,415,-1.79,7.937,10.429,-21.952,18.371,0.328,0.299,0.224,28.513,7.22,8.682,0.198,0.405,poor
+movi,all,Trunk lateral lean at contact,tronco_inclinacion_lateral_contacto,deg,6.121,7.537,415,-2.874,6.687,8.899,-19.402,13.655,0.512,0.474,0.414,23.375,5.984,7.406,0.369,0.561,poor
+movi,all,Peak hip-flexor moment,momento_cadera_flexor_max,N·m/kg,0.708,0.3,415,0.48,0.609,0.922,-1.064,2.025,0.23,0.115,0.086,2.184,0.547,0.674,0.056,0.181,poor
+movi,all,Peak knee-extensor moment,momento_rodilla_extensor_max,N·m/kg,0.129,0.112,415,0.096,0.181,0.275,-0.409,0.602,0.19,0.125,0.083,0.715,0.16,0.203,0.039,0.225,poor
+movi,all,Peak knee-flexor moment (pre-contact),momento_rodilla_flexor_max,N·m/kg,0.064,0.078,415,0.193,0.225,0.318,-0.301,0.688,0.137,0.05,0.042,0.699,0.203,0.249,0.016,0.095,poor
+cmu,replay (45–135°),Support-knee flexion at contact,rodilla_apoyo_flexion_contacto,deg,65.623,19.06,21,2.244,9.084,11.771,-20.964,25.452,0.756,0.737,0.965,32.821,5.946,12.649,0.204,0.789,moderate
+cmu,replay (45–135°),Kicking-knee peak flexion,rodilla_golpeo_flexion_max,deg,83.968,6.7,21,4.063,11.593,13.258,-21.284,29.41,0.467,0.331,0.203,35.846,8.693,14.207,-0.034,0.549,poor
+cmu,replay (45–135°),Kicking-hip peak extension,cadera_golpeo_extension_max,deg,30.512,7.306,21,-22.21,23.399,31.378,-66.727,22.308,0.124,0.038,0.038,62.957,17.284,29.972,-0.014,0.184,poor
+cmu,replay (45–135°),Kicking-hip range of motion,cadera_golpeo_rango,deg,95.019,24.144,21,-15.849,19.745,27.91,-61.989,30.291,0.518,0.431,0.476,65.252,13.664,27.409,-0.087,0.777,poor
+cmu,replay (45–135°),Trunk sagittal lean at contact,tronco_inclinacion_sagital_contacto,deg,-5.513,3.284,21,4.087,4.664,6.022,-4.796,12.97,0.591,0.363,0.328,12.562,3.317,5.918,-0.059,0.592,poor
+cmu,replay (45–135°),Trunk lateral lean at contact,tronco_inclinacion_lateral_contacto,deg,-2.657,1.81,21,1.164,3.692,4.766,-8.117,10.445,0.165,0.105,0.06,13.126,2.86,4.6,-0.159,0.236,poor
+cmu,replay (45–135°),Peak hip-flexor moment,momento_cadera_flexor_max,N·m/kg,1.34,0.508,21,0.049,0.427,0.539,-1.029,1.128,0.309,0.317,0.328,1.525,0.289,0.572,-0.112,0.544,poor
+cmu,replay (45–135°),Peak knee-extensor moment,momento_rodilla_extensor_max,N·m/kg,0.373,0.159,21,-0.054,0.145,0.17,-0.377,0.269,0.384,0.37,0.395,0.457,0.106,0.19,0.025,0.532,poor
+cmu,replay (45–135°),Peak knee-flexor moment (pre-contact),momento_rodilla_flexor_max,N·m/kg,0.965,0.399,21,-0.622,0.638,0.695,-1.245,0.0,0.583,0.113,1.577,0.881,0.416,0.791,0.0,0.28,poor
