@@ -2,6 +2,10 @@
 
 *[English version](README.md)* · Roberto Martín Gutiérrez · [ORCID 0009-0004-5724-3502](https://orcid.org/0009-0004-5724-3502)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23439408.svg)](https://doi.org/10.5281/zenodo.23439408)
+
+La versión de investigación **v1.0.0** está archivada en Zenodo: [10.5281/zenodo.23439408](https://doi.org/10.5281/zenodo.23439408). Véase `CITATION.cff` para citarla. El preprint se ha enviado a SportRxiv (envío 1123) y está en moderación; su DOI sigue pendiente.
+
 Validación, frente a captura óptica, de los rasgos del golpeo (rodilla, cadera, tronco) y de la **carga articular de la pierna de golpeo** estimados desde una sola cámara en condiciones de retransmisión. Aplicación prevista: LaLiga EA Sports e Hypermotion, como complemento del balón conectado (xBALL). El sensor mide el balón; esto mide el cuerpo.
 
 ## 🟢 En sencillo

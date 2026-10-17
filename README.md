@@ -2,6 +2,8 @@
 
 *[Versión en español](README_es.md)*
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23439408.svg)](https://doi.org/10.5281/zenodo.23439408)
+
 **Roberto Martín Gutiérrez** · [ORCID 0009-0004-5724-3502](https://orcid.org/0009-0004-5724-3502) · [LinkedIn](https://www.linkedin.com/in/roberto-martín-gutiérrez-ingeniería-biomédica) · convderover@gmail.com
 
 A validation study, against optical motion capture, of the kicking biomechanics and of the **swing-leg joint loads** that a single broadcast camera can deliver in football. It is meant as a complement to the connected ball (LaLiga's xBALL): the sensor measures the ball, this measures the body.
@@ -110,7 +112,7 @@ Full references are in `docs/manuscrito/referencias.bib`.
 
 ## Citation
 
-See `CITATION.cff`. Until the article is published, please cite this repository.
+See `CITATION.cff`. The research release v1.0.0 is archived in Zenodo: [10.5281/zenodo.23439408](https://doi.org/10.5281/zenodo.23439408). Until the article is published, please cite this software release. The preprint has been submitted to SportRxiv (submission 1123) and is awaiting moderation; its DOI is pending.
 
 ## Licence
 

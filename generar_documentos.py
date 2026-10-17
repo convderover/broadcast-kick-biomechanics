@@ -235,12 +235,11 @@ PREPRINT = [   # versión de preprint: sin huecos de DOI ni datos de envío a la
     ("**Article type:** Original Investigation. **Running title:** Kick biomechanics from broadcast video. "
      "**Word count (main text):** {{WORDS}}.",
      "**Preprint, not peer reviewed.** **Running title:** Kick biomechanics from broadcast video."),
-    ("are available at {{REPO_URL}} **[PENDING: Zenodo DOI]**.", "are available at {{REPO_URL}}."),
-    ("under the MIT licence and archived at Zenodo **[PENDING: DOI]**. The complete statistical outputs are provided "
+    ("under the MIT licence and archived at Zenodo ([10.5281/zenodo.23439408](https://doi.org/10.5281/zenodo.23439408), "
+     "version v1.0.0). The complete statistical outputs are provided "
      "as a supplementary file.",
-     "under the MIT licence; the complete statistical outputs are provided in the same repository."),
-    ("The broadcast residual bank and the aggregated results are deposited in Zenodo **[PENDING: DOI]**.",
-     "The broadcast residual bank and the aggregated results are deposited in the same repository."),
+     "under the MIT licence and archived at Zenodo ([10.5281/zenodo.23439408](https://doi.org/10.5281/zenodo.23439408), "
+     "version v1.0.0); the complete statistical outputs are provided in the same repository."),
     ("Supplementary file 1: GRRAS checklist. Supplementary file 2: complete statistical outputs (CSV and JSON). "
      "Supplementary figures follow.",
      "Supplementary Materials: GRRAS checklist. The complete statistical outputs (CSV and JSON) are available in the repository. "

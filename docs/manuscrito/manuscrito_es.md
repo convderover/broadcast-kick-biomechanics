@@ -213,15 +213,15 @@ El autor concibió el estudio, definió sus objetivos y su alcance, decidió los
 
 # Disponibilidad de los datos
 
-Los conjuntos de datos analizados están disponibles a través de sus propietarios: la base de datos de captura de movimiento de CMU (mocap.cs.cmu.edu), MoVi (licencia de investigación no comercial; [@ghorbani2021]) y 3D Shot Posture [@yeung2024]. Los resultados agregados, todas las figuras y el banco de residuos de retransmisión (residuos 2D numéricos, sin imágenes) están en {{REPO_URL}} **[PENDIENTE: DOI de Zenodo]**. Los resultados por participante derivados de MoVi no se pueden redistribuir por su licencia, pero el código publicado los regenera. Los vídeos del ejemplo de campo muestran al autor y están disponibles a petición; los resultados por golpeo están en el repositorio.
+Los conjuntos de datos analizados están disponibles a través de sus propietarios: la base de datos de captura de movimiento de CMU (mocap.cs.cmu.edu), MoVi (licencia de investigación no comercial; [@ghorbani2021]) y 3D Shot Posture [@yeung2024]. Los resultados agregados, todas las figuras y el banco de residuos de retransmisión (residuos 2D numéricos, sin imágenes) están en {{REPO_URL}} y archivados en Zenodo ([10.5281/zenodo.23439408](https://doi.org/10.5281/zenodo.23439408)). Los resultados por participante derivados de MoVi no se pueden redistribuir por su licencia, pero el código publicado los regenera. Los vídeos del ejemplo de campo muestran al autor y están disponibles a petición; los resultados por golpeo están en el repositorio.
 
 # Disponibilidad del código
 
-Todo el código (Python) de la simulación, la reconstrucción, la estadística y las figuras, con sus pruebas unitarias, está en {{REPO_URL}} con licencia MIT y archivado en Zenodo **[PENDIENTE: DOI]**. Las salidas estadísticas completas se aportan como archivo suplementario.
+Todo el código (Python) de la simulación, la reconstrucción, la estadística y las figuras, con sus pruebas unitarias, está en {{REPO_URL}} con licencia MIT y archivado en Zenodo ([10.5281/zenodo.23439408](https://doi.org/10.5281/zenodo.23439408), versión v1.0.0). Las salidas estadísticas completas se aportan como archivo suplementario.
 
 # Depósito de datos
 
-El banco de residuos de retransmisión y los resultados agregados están depositados en Zenodo **[PENDIENTE: DOI]**.
+El banco de residuos de retransmisión y los resultados agregados están depositados en Zenodo ([10.5281/zenodo.23439408](https://doi.org/10.5281/zenodo.23439408)).
 
 # Aprobación ética y consentimiento informado
 

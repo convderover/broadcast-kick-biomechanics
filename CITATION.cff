@@ -8,6 +8,7 @@ authors:
     email: "convderover@gmail.com"
     orcid: "https://orcid.org/0009-0004-5724-3502"
 version: "1.0.0"
+doi: "10.5281/zenodo.23439408"
 date-released: "2026-10-17"
 license: MIT
 repository-code: "https://github.com/convderover/broadcast-kick-biomechanics"
