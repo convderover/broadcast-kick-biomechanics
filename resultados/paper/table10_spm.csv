@@ -1,0 +1,6 @@
+curve,start_ms,end_ms,p,t_star
+lateral_knee,-400.0,-400.0,0.0234,2.7702
+lateral_knee,-40.0,200.0,0.0001,2.7702
+lateral_hip,-160.0,-120.0,0.0107,2.8165
+frontal_knee,-400.0,200.0,0.0001,2.6117
+frontal_hip,-400.0,-320.0,0.0028,2.7185

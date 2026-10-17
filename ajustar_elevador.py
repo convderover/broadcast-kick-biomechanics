@@ -3,7 +3,9 @@
 Datos de entrenamiento sintéticos y "a la carta": la captura óptica de MoVi (los 21 movimientos de cada sujeto
 de entrenamiento, con la mitad de las muestras centradas en su golpeo) filmada por la cámara virtual con
   - azimut 0–360°, elevación 5–25°, distancia 15–60 m, jugador de 40 a 400 px, 25 o 50 fps;
-  - 2D con residuos reales de RTMW en la Premier League (60 %), gaussiano σ(H) (20 %) o exacto (20 %);
+  - 2D con residuos reales de RTMW en la Premier League (60 %), gaussiano σ(H) (20 %) o exacto (20 %); los
+    residuos salen solo de la mitad de entrenamiento de los disparos (ResidualBank.half): la otra mitad se
+    reserva para evaluar, así el elevador nunca ve en la evaluación el ruido con el que se entrenó;
   - volteo izquierda/derecha aleatorio.
 El objetivo es la 3D "en espacio imagen" relativa a la pelvis, el mismo convenio del entrenamiento original
 (comprobado: la salida del modelo oficial coincide en escala, 0,99–1,01). Pérdida de MotionAGFormer:
@@ -160,7 +162,7 @@ def main():
     train_subjects, test_subjects = f[1 - fold], f[fold]
     print(f"pliegue {fold}: {len(train_subjects)} sujetos de entrenamiento, {len(test_subjects)} de prueba", flush=True)
     res = ROOT / "resultados"
-    bank = ResidualBank.from_frame(pd.read_csv(res / "error2d_3dsp.csv"))
+    bank = ResidualBank.from_frame(pd.read_csv(res / "error2d_3dsp.csv")).half("entrenamiento")
     m = json.loads((res / "modelo_ruido.json").read_text())
     sigma = (m["sigma_frac"], m["sigma_floor_px"])
     tr = Sampler(load_training(train_subjects), bank, sigma, np.random.default_rng(100 + fold))

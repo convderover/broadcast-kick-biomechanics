@@ -35,9 +35,10 @@ gemelo_movi.py: simulación de cada toma real con su geometría                 
                        │
 informe_sensibilidad.py → figuras de resultados, tablas 2–7, resumen_resultados.json
 ondas_movi.py + figuras_articulo.py → fig1_design (diseño), fig2_model (esqueleto y momentos),
-                          fig3_recon (reconstrucción y curvas medias), figS3_bland (Bland–Altman)
+                          fig3_recon (reconstrucción, curvas medias y SPM), figS3_bland (Bland–Altman)
     (todas las figuras salen en inglés en resultados/paper/ y en español en resultados/paper_es/)
 analisis_carga.py       → fig8_joint_load.png, table6_joint_load.csv, resumen_carga.json
+aceptabilidad.py        → table9_acceptability.csv (para qué uso sirve cada variable: criterios de la literatura y TOST)
 videos.py               → resultados/videos/*.mp4 (H.264)
 generar_documentos.py   → docs/manuscrito/manuscript.pdf/.docx (inglés), manuscrito_es.pdf/.docx (español),
                           docs/dossier/dossier_clubes.pdf
@@ -71,8 +72,14 @@ python medir_error_2d.py 1              # ~2,5 min en GPU
 python experimento_sensibilidad.py      # ~1 h en GPU
 python validar_video_movi.py            # ~2 h en GPU
 python gemelo_movi.py
+python ajustar_elevador.py 0            # opcional: elevador ajustado, pliegue 0 (~30 min en GPU)
+python ajustar_elevador.py 1            # pliegue 1
+python evaluar_ajuste.py
 python informe_sensibilidad.py
 python analisis_carga.py
+python aceptabilidad.py
+python ondas_movi.py
+python figuras_articulo.py
 python videos.py
 python generar_documentos.py
 ```

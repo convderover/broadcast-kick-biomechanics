@@ -1,7 +1,8 @@
 """Evaluación del elevador ajustado (ajustar_elevador.py) frente al oficial, siempre en sujetos no vistos.
 
   1. Cámara virtual (experimento_sensibilidad.py --rapido): para cada pliegue, sus sujetos de prueba de MoVi y
-     los 7 golpeos de balón de CMU (nunca vistos en el entrenamiento). Ambos elevadores reciben la misma 2D.
+     los 7 golpeos de balón de CMU (nunca vistos en el entrenamiento). Ambos elevadores reciben la misma 2D,
+     con residuos de la mitad de prueba del banco (disparos que el elevador ajustado no vio al entrenar).
   2. Vídeo real (validar_video_movi.py con la 2D ya detectada): sujetos de prueba de cada pliegue.
 Salidas: resultados/ajuste_sensibilidad.csv, ajuste_video.csv, paper/fig10_finetune.png, paper/table8_finetune.csv.
 
@@ -43,7 +44,8 @@ def simulate():
     for k in (0, 1):
         ids = ",".join(str(s) for s in test_subjects(k))
         run(["experimento_sensibilidad.py", "todo" if k == 0 else "movi", "--rapido", "--sujetos", ids,
-             "--elevadores", f"oficial,{CKPTS[k]}", "--salida", f"_ajuste_sens_fold{k}"])
+             "--elevadores", f"oficial,{CKPTS[k]}", "--salida", f"_ajuste_sens_fold{k}",
+             "--banco", "prueba"])
         parts_s.append(pd.read_csv(RES / f"_ajuste_sens_fold{k}.csv").assign(pliegue=k))
         run(["validar_video_movi.py", *[str(s) for s in test_subjects(k)], "--elevador", str(CKPTS[k]),
              "--salida", f"_ajuste_video_fold{k}"])

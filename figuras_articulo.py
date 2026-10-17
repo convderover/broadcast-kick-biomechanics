@@ -31,6 +31,7 @@ from golpeo.figuras_es import save_fig
 from golpeo.h36m import to_canonical
 from golpeo.metricas import agreement
 from golpeo.ruido import ResidualBank
+from golpeo.spm import paired_snpm
 
 ROOT = Path(__file__).parent
 RES = ROOT / "resultados"
@@ -469,7 +470,7 @@ def fig_recon(s, bank):
             if j == 0:
                 ax.text(-0.06, 0.5, rows[i], transform=ax.transAxes, ha="right", va="center", fontsize=7,
                         color=INK, linespacing=1.15)
-    fig.text(0.13, 0.413, "grey/orange: motion capture   ·   blue: 3D reconstructed from one TV camera "
+    fig.text(0.13, 0.432, "grey/orange: motion capture   ·   blue: 3D reconstructed from one TV camera "
              "(80 px, 25 fps, broadcast 2D noise)", fontsize=6.5, color=rep.INK2)
     fig.text(0.012, 0.975, "a", fontsize=10, weight="bold")
     ond = np.load(RES / "ondas_movi.npz")
@@ -480,8 +481,14 @@ def fig_recon(s, bank):
              ("frontal", "knee", "Frontal camera · kicking-knee flexion (°)"),
              ("frontal", "hip", "Frontal camera · kicking-hip flexion (°)")]
     n = len(ond["lab_lateral_knee"])
+    spm_rows = []
     for k, (cam, ang, title) in enumerate(specs):
         ax = fig.add_subplot(bottom[k // 2, k % 2])
+        r = paired_snpm(ond[f"lab_{cam}_{ang}"], ond[f"est_{cam}_{ang}"])
+        step = tms[1] - tms[0]
+        for i, j, p in r["clusters"]:
+            ax.axvspan(tms[i] - step / 2, tms[j] + step / 2, color="#d03b3b", alpha=0.1, lw=0)
+            spm_rows.append(dict(curve=f"{cam}_{ang}", start_ms=tms[i], end_ms=tms[j], p=p, t_star=r["t_star"]))
         for who, col, lab in (("lab", INK, f"lab (mean ± SD, n = {n})"), ("est", EST, "from TV (mean ± SD)")):
             y = ond[f"{who}_{cam}_{ang}"]
             m, sd = np.nanmean(y, 0), np.nanstd(y, 0)
@@ -492,10 +499,13 @@ def fig_recon(s, bank):
         ax.tick_params(labelsize=7)
         if k >= 2:
             ax.set_xlabel("Time relative to contact (ms)", fontsize=7)
-        if k == 0:
-            ax.legend(fontsize=6.3, loc="upper left", frameon=False)
+    handles = [plt.Line2D([], [], color=INK, lw=1.8, label=f"lab (mean ± SD, n = {n})"),
+               plt.Line2D([], [], color=EST, lw=1.8, label="from TV (mean ± SD)"),
+               Rectangle((0, 0), 1, 1, color="#d03b3b", alpha=0.15, lw=0, label="SPM difference, p < 0.05")]
+    fig.legend(handles=handles, loc="lower center", ncol=3, fontsize=6.8, frameon=False, bbox_to_anchor=(0.55, 0.0))
+    pd.DataFrame(spm_rows).round(4).to_csv(RES / "paper" / "table10_spm.csv", index=False)
     fig.text(0.012, 0.365, "b", fontsize=10, weight="bold")
-    fig.subplots_adjust(left=0.13, right=0.98, top=0.965, bottom=0.06)
+    fig.subplots_adjust(left=0.13, right=0.98, top=0.965, bottom=0.085)
     save_fig(fig, "fig3_recon.png")
     plt.close(fig)
 

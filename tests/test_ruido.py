@@ -50,3 +50,15 @@ def test_muestra_50fps_interpola_en_el_tiempo():
 def test_solo_usa_escala_original():
     df = pd.concat([_df(), _df().assign(escala=0.5)])
     assert len(ResidualBank.from_frame(df)) == 6
+
+
+def test_mitades_disjuntas_y_estratificadas():
+    seqs = [np.full((20, 17, 2), float(i)) for i in range(10)]
+    bank = ResidualBank(seqs, heights=np.arange(10) * 10.0 + 30)
+    tr, te = bank.half("entrenamiento"), bank.half("prueba")
+    ids_tr = {int(s[0, 0, 0]) for s in tr.seqs}
+    ids_te = {int(s[0, 0, 0]) for s in te.seqs}
+    assert ids_tr.isdisjoint(ids_te) and ids_tr | ids_te == set(range(10))
+    assert abs(np.median(tr.heights) - np.median(te.heights)) <= 10       # mismas alturas en las dos mitades
+    with pytest.raises(ValueError):
+        bank.half("todo")

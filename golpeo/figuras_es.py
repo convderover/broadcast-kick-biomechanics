@@ -207,6 +207,7 @@ PHRASES = {
     "Frontal camera · kicking-hip flexion (°)": "Cámara frontal · flexión cadera de golpeo (°)",
     "lab (mean ± SD, n =": "laboratorio (media ± DE, n =",
     "from TV (mean ± SD)": "desde TV (media ± DE)",
+    "SPM difference, p < 0.05": "diferencia SPM, p < 0,05",
     "Motion\ncapture\n(truth)": "Captura\nóptica\n(verdad)",
     "TV input\nlateral\n80 px": "Entrada\nTV lateral\n80 px",
     "3D from\nlateral\ncamera": "3D desde\ncámara\nlateral",

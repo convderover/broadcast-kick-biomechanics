@@ -20,7 +20,7 @@ El balón conectado de LaLiga mide el balón; este trabajo mide **el cuerpo que 
 - **Vídeo real con 3D sincronizada** y un **gemelo digital** que comprueba que el simulador acierta.
 - **Carga articular de la pierna de golpeo** (cadera y rodilla) por dinámica inversa, sin plataformas de fuerza.
 - **Tres remedios evaluados:** corrección de sesgos, fusión de repeticiones y un modelo 3D adaptado al golpeo con ruido de retransmisión.
-- **Código abierto y verificado:** 59 tests y protocolo publicable como banco de pruebas.
+- **Código abierto y verificado:** 61 tests y protocolo publicable como banco de pruebas.
 
 # Qué es fiable desde la tele
 
@@ -28,7 +28,7 @@ El balón conectado de LaLiga mide el balón; este trabajo mide **el cuerpo que 
 
 **Lectura para un club:**
 
-- **Con una cámara y modelos abiertos, los ángulos de la pierna de un disparo concreto tienen 15–20° de error:** sirven para tendencias de un jugador con muchos disparos, no para juzgar un disparo aislado.
+- **Para qué sirve cada medida** (criterios publicados): **con una sola cámara, para nada** (15–20° de error en la pierna). Con 3 repeticiones y corrección, la flexión de la rodilla de golpeo sirve para **ordenar jugadores** y la inclinación del tronco para **comparar con valores de laboratorio**. **Ninguna sirve aún para seguir los cambios de un jugador.**
 - **Lo más medible:** la flexión de la rodilla de golpeo y la extensión de cadera en el armado (acuerdo moderado; bueno si se combinan 3 repeticiones). **La rodilla de apoyo no es medible desde la tele.**
 - **La frecuencia de imagen no es el problema** (25 frente a 50 fps: sin diferencia). Lo son el tamaño del jugador, el ángulo de cámara y saber cuándo toca el balón.
 - **El instante de contacto del balón conectado reduce el error un 25 %.** Cuerpo + xBALL es mejor que cualquiera de los dos por separado.

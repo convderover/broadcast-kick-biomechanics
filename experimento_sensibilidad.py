@@ -92,6 +92,8 @@ def main():
     ap.add_argument("--sujetos", default=None, help="sujetos de MoVi, separados por comas")
     ap.add_argument("--rapido", action="store_true", help="25 fps, 200/80/50 px, sin ruido y residuos")
     ap.add_argument("--salida", default="sensibilidad")
+    ap.add_argument("--banco", default="completo", choices=("completo", "entrenamiento", "prueba"),
+                    help="disparos del banco de residuos: todos o una mitad (ResidualBank.half)")
     args = ap.parse_args()
     OUT.mkdir(exist_ok=True)
     lifters = {name: Lifter() if name == "oficial" else Lifter(ckpt=_P(name)) for name in args.elevadores.split(",")}
@@ -101,6 +103,8 @@ def main():
     if args.rapido:
         ruidos = {k: v for k, v in ruidos.items() if k in ("sin_ruido", "residuos")}
     bank = ResidualBank.from_frame(pd.read_csv(OUT / "error2d_3dsp.csv"))
+    if args.banco != "completo":
+        bank = bank.half(args.banco)
     subjects = None if args.sujetos is None else {int(s) for s in args.sujetos.split(",")}
     trials = ((cmu_trials() if args.conjunto in ("cmu", "todo") else [])
               + (movi_trials(subjects=subjects) if args.conjunto in ("movi", "todo") else []))

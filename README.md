@@ -12,6 +12,7 @@ A validation study, against optical motion capture, of the kicking biomechanics 
 
 - **2D detector error on broadcast shots** (RTMW-x, 200 Premier League shots): 7.6–12.9 % of player height, more than twice the error on laboratory video of the same pixel size. Model: σ(H) = √((0.063 H)² + 3.9²) px.
 - **Typical broadcast condition** (player 80 px tall, 25 fps, replay views): leg-angle errors of 16–20°. Only kicking-knee peak flexion (ICC 0.64) and backswing hip extension (ICC 0.55) reach moderate between-player agreement.
+- **Fitness for use** (literature-based criteria): from a single camera no variable is fit for comparison with laboratory norms, ranking players or monitoring an individual. Fusing three replays with a lab-learnt correction makes kicking-knee flexion fit for ranking players (ICC 0.80) and trunk leans comparable with lab norms (MAE < 5°); nothing can monitor individual changes.
 - **What matters and what does not:** camera view and knowing the contact instant matter (the connected ball's contact time cuts errors by 25 %); 50 versus 25 fps does not. Independent Gaussian noise overstates the error 1.05–1.8× with respect to real detector residuals.
 - **Digital twin:** simulating each real recording with its own camera geometry predicts the real-video error (r = 0.84, mean discrepancy 3.9°).
 - **Remedies:** fusing three replay angles raises hip-extension agreement from 0.40 to 0.78; a lifter fine-tuned on kicks under broadcast noise halves simulated errors (MPJPE −62 %) but degrades real ball kicks.
@@ -46,7 +47,8 @@ CMU (7 ball kicks, 120 Hz)   MoVi (83 participants, 3D + 2 calibrated video came
   gemelo_movi.py: digital twin of every real recording
   ajustar_elevador.py / evaluar_ajuste.py: kick- and broadcast-adapted lifter, cross-validated by subject
                          │
-  informe_sensibilidad.py, analisis_carga.py, ondas_movi.py, figuras_articulo.py → figures and tables (EN + ES)
+  informe_sensibilidad.py, analisis_carga.py, aceptabilidad.py (fitness for use, TOST),
+  ondas_movi.py, figuras_articulo.py (incl. SPM of the waveforms) → figures and tables (EN + ES)
   videos.py → videos · generar_documentos.py → PDF and Word documents
 ```
 
@@ -65,10 +67,12 @@ python medir_error_2d.py 1              # ~2.5 min on GPU
 python experimento_sensibilidad.py      # ~1 h on GPU
 python validar_video_movi.py            # ~2 h on GPU
 python gemelo_movi.py
-python ajustar_elevador.py              # optional: fine-tuned lifter (2 folds)
+python ajustar_elevador.py 0            # optional: fine-tuned lifter, fold 0 (~30 min on GPU)
+python ajustar_elevador.py 1            # fold 1
 python evaluar_ajuste.py
 python informe_sensibilidad.py
 python analisis_carga.py
+python aceptabilidad.py
 python ondas_movi.py
 python figuras_articulo.py
 python videos.py

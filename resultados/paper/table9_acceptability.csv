@@ -1,0 +1,28 @@
+condition,key,feature,unit,n_participants,mae,bias,tost_p,bias_ci90_low,bias_ci90_high,icc21,icc_ci_low,icc_ci_high,sd_diff,swc,noise_to_swc,use_lab_norms,use_ranking,use_monitoring
+"single camera (80 px, simulated)",rodilla_apoyo_flexion_contacto,Support-knee flexion at contact,deg,83,20.415,15.597,1.0,13.52,17.674,0.07,0.018,0.127,21.031,1.753,12.0,False,False,False
+"single camera (80 px, simulated)",rodilla_golpeo_flexion_max,Kicking-knee peak flexion,deg,83,16.545,2.95,0.135,-0.126,6.026,0.638,0.548,0.709,22.514,5.73,3.929,False,False,False
+"single camera (80 px, simulated)",cadera_golpeo_extension_max,Kicking-hip peak extension,deg,83,15.725,1.213,0.004,-1.101,3.526,0.546,0.392,0.679,21.48,3.995,5.377,False,False,False
+"single camera (80 px, simulated)",cadera_golpeo_rango,Kicking-hip range of motion,deg,83,18.019,2.687,0.141,-0.862,6.237,0.449,0.308,0.631,29.599,4.401,6.726,False,False,False
+"single camera (80 px, simulated)",tronco_inclinacion_sagital_contacto,Trunk sagittal lean at contact,deg,83,7.074,-1.559,0.0,-2.527,-0.591,0.416,0.276,0.541,9.362,1.399,6.693,False,False,False
+"single camera (80 px, simulated)",tronco_inclinacion_lateral_contacto,Trunk lateral lean at contact,deg,83,7.02,-4.301,0.143,-5.385,-3.217,0.417,0.324,0.506,7.96,1.507,5.281,False,False,False
+"single camera (80 px, simulated)",momento_cadera_flexor_max,Peak hip-flexor moment,N·m/kg,83,0.627,0.541,,,,0.105,0.057,0.173,0.791,0.06,13.19,,False,False
+"single camera (80 px, simulated)",momento_rodilla_extensor_max,Peak knee-extensor moment,N·m/kg,83,0.173,0.111,,,,0.156,0.045,0.298,0.252,0.022,11.302,,False,False
+"single camera (80 px, simulated)",momento_rodilla_flexor_max,Peak knee-flexor moment (pre-contact),N·m/kg,83,0.211,0.172,,,,0.058,-0.002,0.123,0.241,0.016,15.443,,False,False
+3 replays + bias correction (simulated),rodilla_apoyo_flexion_contacto,Support-knee flexion at contact,deg,83,6.959,0.006,0.0,-1.567,1.579,0.11,-0.004,0.225,8.615,1.753,4.916,False,False,False
+3 replays + bias correction (simulated),rodilla_golpeo_flexion_max,Kicking-knee peak flexion,deg,83,12.311,-0.007,0.004,-3.054,3.039,0.8,0.701,0.87,16.682,5.73,2.911,False,True,False
+3 replays + bias correction (simulated),cadera_golpeo_extension_max,Kicking-hip peak extension,deg,83,9.326,0.029,0.0,-2.296,2.355,0.749,0.609,0.846,12.737,3.995,3.188,False,False,False
+3 replays + bias correction (simulated),cadera_golpeo_rango,Kicking-hip range of motion,deg,83,12.862,0.228,0.007,-2.958,3.414,0.581,0.469,0.681,17.448,4.401,3.965,False,False,False
+3 replays + bias correction (simulated),tronco_inclinacion_sagital_contacto,Trunk sagittal lean at contact,deg,83,3.803,-0.003,0.0,-0.94,0.935,0.639,0.482,0.768,5.134,1.399,3.671,True,False,False
+3 replays + bias correction (simulated),tronco_inclinacion_lateral_contacto,Trunk lateral lean at contact,deg,83,4.591,0.006,0.0,-1.08,1.091,0.563,0.46,0.668,5.944,1.507,3.944,True,False,False
+3 replays + bias correction (simulated),momento_cadera_flexor_max,Peak hip-flexor moment,N·m/kg,83,0.21,0.001,,,,0.214,0.131,0.304,0.286,0.06,4.771,,False,False
+3 replays + bias correction (simulated),momento_rodilla_extensor_max,Peak knee-extensor moment,N·m/kg,83,0.074,-0.0,,,,0.21,0.081,0.331,0.107,0.022,4.8,,False,False
+3 replays + bias correction (simulated),momento_rodilla_flexor_max,Peak knee-flexor moment (pre-contact),N·m/kg,83,0.056,0.0,,,,0.046,-0.06,0.14,0.078,0.016,5.015,,False,False
+"real video, 80 px",rodilla_apoyo_flexion_contacto,Support-knee flexion at contact,deg,82,12.483,-8.505,1.0,-10.325,-6.859,0.27,0.148,0.397,12.779,1.762,7.254,False,False,False
+"real video, 80 px",rodilla_golpeo_flexion_max,Kicking-knee peak flexion,deg,82,20.332,-8.78,0.922,-13.1,-4.399,0.559,0.341,0.729,26.587,5.697,4.667,False,False,False
+"real video, 80 px",cadera_golpeo_extension_max,Kicking-hip peak extension,deg,82,24.081,23.441,1.0,21.435,25.512,0.385,0.296,0.471,14.898,3.993,3.731,False,False,False
+"real video, 80 px",cadera_golpeo_rango,Kicking-hip range of motion,deg,82,15.46,3.537,0.192,0.409,6.428,0.674,0.576,0.755,21.141,4.364,4.844,False,False,False
+"real video, 80 px",tronco_inclinacion_sagital_contacto,Trunk sagittal lean at contact,deg,82,13.565,-13.414,1.0,-14.331,-12.57,0.154,0.102,0.206,6.769,1.38,4.905,False,False,False
+"real video, 80 px",tronco_inclinacion_lateral_contacto,Trunk lateral lean at contact,deg,82,3.818,-0.912,0.0,-1.634,-0.183,0.712,0.619,0.78,4.973,1.488,3.341,True,False,False
+"real video, 80 px",momento_cadera_flexor_max,Peak hip-flexor moment,N·m/kg,82,0.385,0.127,,,,0.276,0.131,0.505,0.644,0.06,10.709,,False,False
+"real video, 80 px",momento_rodilla_extensor_max,Peak knee-extensor moment,N·m/kg,82,0.131,0.013,,,,0.212,0.021,0.494,0.222,0.022,9.904,,False,False
+"real video, 80 px",momento_rodilla_flexor_max,Peak knee-flexor moment (pre-contact),N·m/kg,82,0.202,0.183,,,,0.064,0.004,0.168,0.258,0.016,16.464,,False,False

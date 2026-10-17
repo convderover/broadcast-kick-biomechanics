@@ -52,3 +52,17 @@ def test_traduccion_de_figuras():
     assert translate("Kicking-knee peak flexion") == "Flexión máx. rodilla de golpeo"
     assert translate("6 000 detections") == "6.000 detections"
     assert translate("laboratory") == "laboratorio"
+
+
+def test_spm_detecta_solo_la_diferencia_real():
+    from golpeo.spm import paired_snpm
+    rng = np.random.default_rng(1)
+    t = np.linspace(0, 1, 30)
+    base = 40 * np.sin(np.pi * t)[None] + rng.normal(0, 5, (60, 1))     # 60 participantes con su propio nivel
+    a = base + rng.normal(0, 3, (60, 30))
+    b = base + rng.normal(0, 3, (60, 30)) + np.where(t > 0.6, 6.0, 0.0)  # diferencia solo al final
+    r = paired_snpm(a, b, n_perm=2000, rng=np.random.default_rng(2))
+    assert r["mask"][t > 0.7].all() and not r["mask"][t < 0.5].any()
+    assert len(r["clusters"]) == 1 and r["clusters"][0][2] < 0.05
+    nulo = paired_snpm(a, base + rng.normal(0, 3, (60, 30)), n_perm=2000, rng=np.random.default_rng(3))
+    assert not nulo["mask"].any()

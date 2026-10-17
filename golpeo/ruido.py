@@ -37,6 +37,15 @@ class ResidualBank:
             heights.append(float(g.altura_px.median()))
         return cls(seqs, np.array(heights), fps)
 
+    def half(self, which: str) -> "ResidualBank":
+        """Mitad de los disparos, estratificada por altura (ordenados por altura, alternos): "entrenamiento" o
+        "prueba". Separa el ruido con el que se entrena el elevador ajustado del ruido con el que se evalúa."""
+        if which not in ("entrenamiento", "prueba"):
+            raise ValueError(which)
+        order = np.argsort(self.heights, kind="stable")
+        idx = order[0::2] if which == "entrenamiento" else order[1::2]
+        return ResidualBank([self.seqs[i] for i in idx], self.heights[idx], self.fps)
+
     def sample(self, T: int, fps: float, height_px: float, rng: np.random.Generator) -> np.ndarray:
         """(T, 17, 2) residuos en píxeles para un jugador de `height_px`, concatenando disparos al azar.
         Se usan los disparos con altura dentro de ±30 % de la pedida si los hay; si no, los 20 % más grandes."""
