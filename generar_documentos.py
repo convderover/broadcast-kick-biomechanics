@@ -253,9 +253,7 @@ def build_preprint():
     """Preprint (SportRxiv) a partir del manuscrito en inglés: mismo texto, sin los huecos del envío."""
     src = DOCS / "manuscrito" / "manuscript.md"
     text = src.read_text(encoding="utf-8")
-    for a, b in PREPRINT:
-        if a not in text:
-            raise ValueError(f"no encuentro en el manuscrito: {a[:60]}")
+    for a, b in PREPRINT:          # las que ya no están (p. ej. porque el DOI ya se rellenó) se saltan
         text = text.replace(a, b)
     if "PENDING" in text:
         raise ValueError("quedan huecos [PENDING] en la versión de preprint")
