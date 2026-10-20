@@ -8,6 +8,7 @@ link-citations: true
 header-includes: |
   ```{=typst}
   #show table: set par(justify: false)
+  #show figure: set block(breakable: true)
   #show table: set text(size: 8.5pt)
   ```
 ---
@@ -18,7 +19,7 @@ header-includes: |
 
 # Abstract
 
-Professional football now measures the ball, but the kicking body is only visible on broadcast video. This method-comparison study asked for which practical uses single-camera broadcast-like video can measure kicking kinematics and swing-leg joint loads. Optical motion capture of 90 laboratory kicks (7 ball kicks; 83 participants) served as reference. Kicks were filmed by a virtual broadcast camera carrying the real 2D detector error of 200 Premier League shots, lifted to 3D, and checked on real video with synchronised capture and a per-recording digital twin. Six kinematic features and three swing-leg joint moments were judged against literature-based criteria for comparing with laboratory norms, ranking players and monitoring individuals. Broadcast detection error was 7.6–12.9 % of player height. From a single camera (80 px, 25 fps) and the published lifter no variable met any criterion (best ICC 0.64). The digital twin predicted real-video errors (r = 0.84). Fusing three replays with a laboratory correction made kicking-knee flexion acceptable for ranking players (ICC 0.80) and trunk leans comparable with laboratory norms (MAE < 5°); no variable could monitor individuals. A swing-leg load index was valid in the laboratory (ρ = 0.79 with kick intensity) but not from video (reliability 0.08), so validating it as an injury predictor would need about 590 injuries (12–24 LaLiga seasons). Smartphone recordings of real kicks reproduced these patterns. Single-camera broadcast video does not yet support individual kicking biomechanics or load-based injury scores; replay fusion and ball-contact timing allow limited ranking uses, pending validation on football-specific data.
+Professional football now measures the ball, but the kicking body is only visible on broadcast video. This method-comparison study asked for which practical uses single-camera broadcast-like video can measure kicking kinematics and swing-leg joint loads. Optical motion capture of 90 laboratory kicks (7 ball kicks; 83 participants) served as reference. Kicks were filmed by a virtual broadcast camera carrying the real 2D detector error of 200 Premier League shots, lifted to 3D, and checked on real video with synchronised capture and a per-recording digital twin. Six kinematic features and three swing-leg joint moments were judged against literature-based criteria for comparing with laboratory norms, ranking players and monitoring individuals. Broadcast detection error was 7.6–12.9 % of player height. From a single camera (80 px, 25 fps) and the published lifter no variable met any criterion (best ICC 0.64). The digital twin predicted real-video errors (r = 0.84). Fusing three replays with a laboratory correction made kicking-knee flexion acceptable for ranking players (ICC 0.80) and trunk leans comparable with laboratory norms (MAE < 5°); no variable could monitor individuals. A swing-leg load index tracked kick intensity in the laboratory (ρ = 0.79) but was not recoverable from video (reliability 0.08), so validating it as an injury predictor would need about 590 injuries (12–24 LaLiga seasons). Smartphone recordings of real kicks reproduced these patterns. Single-camera broadcast video does not yet support individual kicking biomechanics or load-based injury scores; replay fusion and ball-contact timing allow limited ranking uses, pending validation on football-specific data.
 
 **Keywords:** football; kicking; broadcast video; markerless motion capture; agreement; inverse dynamics
 
@@ -186,7 +187,7 @@ The reference is laboratory-based: only seven kicks (two participants) are footb
 
 ## 4.6 Conclusions
 
-Broadcast detection error, about 10 % of a typical shooter's height, is the bottleneck. With a published general-purpose lifter, no kicking variable measured from a single broadcast camera is fit for comparison with laboratory norms, ranking players or monitoring individuals; fusing replays, adapting the lifter and anchoring kicks to the ball's contact time make a few variables usable for ranking or comparison with norms, but none for monitoring an individual. A swing-leg joint-load index is valid in the laboratory but not measurable from broadcast today, and validating it as an injury predictor would require football-specific data to raise its reliability first.
+Broadcast detection error, about 10 % of a typical shooter's height, is the bottleneck. With a published general-purpose lifter, no kicking variable measured from a single broadcast camera is fit for comparison with laboratory norms, ranking players or monitoring individuals; fusing replays, adapting the lifter and anchoring kicks to the ball's contact time make a few variables usable for ranking or comparison with norms, but none for monitoring an individual. A swing-leg joint-load index tracks kick intensity in the laboratory, which supports its construct validity but not its value as an injury predictor, and it is not measurable from broadcast today, and validating it as an injury predictor would require football-specific data to raise its reliability first.
 
 # Acknowledgements
 
@@ -194,7 +195,7 @@ The CMU data used in this project was obtained from mocap.cs.cmu.edu; the databa
 
 # Author contributions (CRediT)
 
-Roberto Martín Gutiérrez: Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Visualization, Writing – original draft, Writing – review & editing.
+Roberto Martín Gutiérrez: Conceptualization, Investigation (field recordings), Supervision (direction of the AI-assisted work and choice among the options proposed during it), Writing – review & editing. Methodology, Software, Formal analysis, Visualization and Writing – original draft were carried out with generative AI under the author's direction (see Declaration of generative AI use).
 
 # Funding
 
@@ -206,7 +207,7 @@ The author reports there are no competing interests to declare. The author is em
 
 # Declaration of generative AI use
 
-The author conceived the study, defined its aims and scope, decided on the analyses proposed during the work, recorded the field example and interpreted the results. Generative AI (Claude, Anthropic, used through Claude Code) was used as an assistant, under the author's direction, to write and run the analysis code, produce the figures, and draft, edit and translate the manuscript text. The author reviewed and verified all code, outputs and text and takes full responsibility for the content.
+Generative AI (Claude, Anthropic, used through Claude Code) was used extensively. Under the author's direction it proposed the study design and the analyses, searched and checked the literature, wrote and ran the analysis code and its unit tests, produced the figures, and drafted, edited and translated the manuscript. The author conceived the project and its football focus, chose among the options proposed, recorded the field example, reviewed the figures and the manuscript and requested changes, and takes full responsibility for the content. All code, intermediate outputs and statistical results are public so that every number can be checked independently.
 
 # Data availability statement
 

@@ -1,6 +1,12 @@
 ---
 title: "Supplementary file 1 — GRRAS checklist"
 subtitle: "Guidelines for Reporting Reliability and Agreement Studies (Kottner et al., 2011)"
+header-includes: |
+  ```{=typst}
+  #show figure: set block(breakable: true)
+  #show table: set text(size: 8.5pt)
+  #show table: set par(justify: false)
+  ```
 ---
 
 Manuscript: *What can be measured from the broadcast? Validity of single-camera video for football-kick kinematics and swing-leg joint loads.* Section numbers refer to the submitted manuscript.
@@ -13,7 +19,7 @@ Manuscript: *What can be measured from the broadcast? Validity of single-camera 
 | 4 | Specify the rater population of interest (if applicable) | Not applicable: the method is automated (detector + lifter). The reference "rater" is optical motion capture (§2.1) |
 | 5 | Describe what is already known about reliability and agreement and provide a rationale for the study | §1 |
 | 6 | Explain how the sample size was chosen; state the number of raters, subjects/objects and replicate observations | §2.7 (fixed by the public datasets; 83 participants); §2.1 (7 CMU kicks); §2.3 (5 views × 5 sizes × 2 frame rates; 3 noise seeds for CMU, 1 for MoVi) |
-| 7 | Describe the sampling method | §2.1 (all CMU kick trials; all MoVi participants with a usable, gap-free kick; all 200 3DSP shots) |
+| 7 | Describe the sampling method | §2.1 (all seven CMU kick trials; all MoVi participants with a usable kick, after interpolating gaps of up to 0.25 s and excluding kicks with longer gaps; all 200 3DSP shots) |
 | 8 | Describe the measurement process | §2.2 (features, loads, windows); §2.3 (virtual camera, error models, lifting); §2.4 (real video, digital twin); §2.5 (remedies) |
 | 9 | State whether measurements were conducted independently | §2.3: video estimates never used the reference except for scale (thigh length) and one rigid alignment per sequence, which emulate known stature and pitch calibration; the adapted lifter was tested only on unseen participants and held-out broadcast residuals (§2.5) |
 | 10 | Describe the statistical analysis | §2.7 (bias, MAE, limits of agreement, ICC(2,1), calibration slope, bootstrap CIs, acceptability criteria, TOST, SPM); §2.8 (injury-study size) |

@@ -9,6 +9,7 @@ link-citations: true
 header-includes: |
   ```{=typst}
   #show table: set par(justify: false)
+  #show figure: set block(breakable: true)
   #show table: set text(size: 8.5pt)
   ```
 ---
@@ -21,7 +22,7 @@ header-includes: |
 
 # Resumen
 
-El fútbol profesional ya mide el balón, pero el cuerpo que lo golpea solo se ve en el vídeo de la retransmisión. Este estudio de comparación de métodos se preguntó para qué usos prácticos puede el vídeo de tipo retransmisión de una sola cámara medir la cinemática del golpeo y las cargas articulares de la pierna de golpeo. La captura óptica de 90 golpeos de laboratorio (7 golpeos de balón y 83 participantes) sirvió de referencia. Los golpeos se filmaron con una cámara de retransmisión virtual con el error 2D real del detector en 200 disparos de la Premier League, se elevaron a 3D con un modelo publicado y se comprobaron con vídeo real con captura sincronizada y con un gemelo digital de cada grabación. Seis rasgos cinemáticos y tres momentos articulares de la pierna de golpeo se juzgaron con criterios de la literatura para comparar con normas de laboratorio, ordenar jugadores y seguir a un jugador. El error del detector en retransmisión fue del 7,6–12,9 % de la altura del jugador. Con una sola cámara (jugador de 80 px, 25 fps) y el elevador publicado, ninguna variable cumplió ningún criterio (mejor CCI 0,64). El gemelo digital predijo los errores del vídeo real (r = 0,84). Fusionar tres repeticiones con una corrección de laboratorio hizo que la flexión de la rodilla de golpeo sirviera para ordenar jugadores (CCI 0,80) y que las inclinaciones del tronco fueran comparables con normas de laboratorio (EAM < 5°); ninguna variable permitió seguir a un jugador. Un índice de carga de la pierna de golpeo fue válido en laboratorio (ρ = 0,79 con la intensidad) pero no desde vídeo (fiabilidad 0,08), así que validarlo como predictor de lesiones exigiría unas 590 lesiones (12–24 temporadas de LaLiga). Las grabaciones con móvil de golpeos reales reprodujeron estos patrones. El vídeo de retransmisión de una sola cámara todavía no permite una biomecánica individual del golpeo ni índices de lesión basados en la carga; la fusión de repeticiones y el instante de contacto del balón permiten usos limitados para ordenar jugadores, a falta de validarlos con datos propios del fútbol.
+El fútbol profesional ya mide el balón, pero el cuerpo que lo golpea solo se ve en el vídeo de la retransmisión. Este estudio de comparación de métodos se preguntó para qué usos prácticos puede el vídeo de tipo retransmisión de una sola cámara medir la cinemática del golpeo y las cargas articulares de la pierna de golpeo. La captura óptica de 90 golpeos de laboratorio (7 golpeos de balón y 83 participantes) sirvió de referencia. Los golpeos se filmaron con una cámara de retransmisión virtual con el error 2D real del detector en 200 disparos de la Premier League, se elevaron a 3D con un modelo publicado y se comprobaron con vídeo real con captura sincronizada y con un gemelo digital de cada grabación. Seis rasgos cinemáticos y tres momentos articulares de la pierna de golpeo se juzgaron con criterios de la literatura para comparar con normas de laboratorio, ordenar jugadores y seguir a un jugador. El error del detector en retransmisión fue del 7,6–12,9 % de la altura del jugador. Con una sola cámara (jugador de 80 px, 25 fps) y el elevador publicado, ninguna variable cumplió ningún criterio (mejor CCI 0,64). El gemelo digital predijo los errores del vídeo real (r = 0,84). Fusionar tres repeticiones con una corrección de laboratorio hizo que la flexión de la rodilla de golpeo sirviera para ordenar jugadores (CCI 0,80) y que las inclinaciones del tronco fueran comparables con normas de laboratorio (EAM < 5°); ninguna variable permitió seguir a un jugador. Un índice de carga de la pierna de golpeo siguió la intensidad del golpeo en laboratorio (ρ = 0,79), pero no se pudo recuperar desde vídeo (fiabilidad 0,08), así que validarlo como predictor de lesiones exigiría unas 590 lesiones (12–24 temporadas de LaLiga). Las grabaciones con móvil de golpeos reales reprodujeron estos patrones. El vídeo de retransmisión de una sola cámara todavía no permite una biomecánica individual del golpeo ni índices de lesión basados en la carga; la fusión de repeticiones y el instante de contacto del balón permiten usos limitados para ordenar jugadores, a falta de validarlos con datos propios del fútbol.
 
 **Palabras clave:** fútbol; golpeo; vídeo de retransmisión; captura de movimiento sin marcadores; acuerdo; dinámica inversa
 
@@ -189,7 +190,7 @@ La referencia es de laboratorio: solo siete golpeos (dos participantes) son golp
 
 ## 4.6 Conclusiones
 
-El error del detector en retransmisión, de alrededor del 10 % de la altura de un jugador típico al disparar, es el cuello de botella. Con un elevador publicado de propósito general, ninguna variable del golpeo medida con una sola cámara de retransmisión sirve para comparar con normas de laboratorio, ordenar jugadores o seguir a un jugador; fusionar las repeticiones, adaptar el elevador y anclar el golpeo al instante de contacto del balón hacen utilizables unas pocas variables para ordenar o para comparar con normas, pero ninguna para seguir a un jugador. Un índice de carga articular de la pierna de golpeo es válido en laboratorio, pero hoy no se puede medir desde la retransmisión, y validarlo como predictor de lesiones exigiría antes subir su fiabilidad con datos propios del fútbol.
+El error del detector en retransmisión, de alrededor del 10 % de la altura de un jugador típico al disparar, es el cuello de botella. Con un elevador publicado de propósito general, ninguna variable del golpeo medida con una sola cámara de retransmisión sirve para comparar con normas de laboratorio, ordenar jugadores o seguir a un jugador; fusionar las repeticiones, adaptar el elevador y anclar el golpeo al instante de contacto del balón hacen utilizables unas pocas variables para ordenar o para comparar con normas, pero ninguna para seguir a un jugador. Un índice de carga articular de la pierna de golpeo sigue la intensidad del golpeo en laboratorio, lo que apoya su validez de constructo pero no su valor como predictor de lesiones, y hoy no se puede medir desde la retransmisión, y validarlo como predictor de lesiones exigiría antes subir su fiabilidad con datos propios del fútbol.
 
 # Agradecimientos
 
@@ -197,7 +198,7 @@ Los datos de CMU usados en este proyecto se obtuvieron de mocap.cs.cmu.edu; la b
 
 # Contribuciones del autor (CRediT)
 
-Roberto Martín Gutiérrez: conceptualización, metodología, software, validación, análisis formal, investigación, curación de datos, visualización, redacción del borrador original, y revisión y edición.
+Roberto Martín Gutiérrez: conceptualización, investigación (grabaciones de campo), supervisión (dirección del trabajo asistido por IA y elección entre las opciones propuestas durante él), y revisión y edición. La metodología, el software, el análisis formal, la visualización y la redacción del borrador original se hicieron con IA generativa bajo la dirección del autor (véase la declaración de uso de IA generativa).
 
 # Financiación
 
@@ -209,7 +210,7 @@ El autor declara que no tiene intereses en conflicto. El autor trabaja como inge
 
 # Declaración de uso de IA generativa
 
-El autor concibió el estudio, definió sus objetivos y su alcance, decidió los análisis propuestos durante el trabajo, grabó el ejemplo de campo e interpretó los resultados. Se usó IA generativa (Claude, de Anthropic, mediante Claude Code) como asistente, bajo la dirección del autor, para escribir y ejecutar el código de análisis, producir las figuras y redactar, editar y traducir el texto del manuscrito. El autor revisó y verificó todo el código, los resultados y el texto, y asume toda la responsabilidad del contenido.
+Se usó IA generativa (Claude, de Anthropic, mediante Claude Code) de forma extensa. Bajo la dirección del autor, propuso el diseño del estudio y los análisis, buscó y comprobó la bibliografía, escribió y ejecutó el código de análisis y sus pruebas unitarias, produjo las figuras y redactó, editó y tradujo el manuscrito. El autor concibió el proyecto y su enfoque futbolístico, eligió entre las opciones propuestas, grabó el ejemplo de campo, revisó las figuras y el manuscrito y pidió cambios, y asume toda la responsabilidad del contenido. Todo el código, los resultados intermedios y las salidas estadísticas son públicos para que cada cifra se pueda comprobar de forma independiente.
 
 # Disponibilidad de los datos
 
