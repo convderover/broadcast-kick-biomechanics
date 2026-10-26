@@ -112,21 +112,6 @@
       "tv_calib_slope": 0.3800024545686912
     }
   },
-  "feasibility": {
-    "1.3": {
-      "lab_events": 114.02453556243219,
-      "tv_kli_events": 1407.9231649616347
-    },
-    "1.5": {
-      "lab_events": 47.7420100459973,
-      "tv_kli_events": 589.4966513482277
-    },
-    "2.0": {
-      "lab_events": 16.336414814717727,
-      "tv_kli_events": 201.7146286684065
-    }
-  },
-  "laliga_players": 500,
   "agreement": [
     {
       "source": "virtual camera (cmu), 80 px, 25 fps, 45–135°",
@@ -380,5 +365,23 @@
       "r": 0.303,
       "calib_slope": 0.38
     }
-  ]
+  ],
+  "model_consistency_note": "Shared kinematic input; not independent validation of tissue loading or injury risk. construct_movi is retained as a legacy key.",
+  "surrogate_transfer_note": "Laboratory LOSO results are held out; the transfer model is fitted on all MoVi laboratory observations and its TV agreement is exploratory, not held out.",
+  "hypothetical_event_sensitivity": {
+    "hr_per_true_sd": 1.5,
+    "assumed_information_fractions": [
+      1.0,
+      0.5,
+      0.2,
+      0.1
+    ],
+    "events_rounded_up": [
+      48,
+      96,
+      239,
+      478
+    ],
+    "note": "Illustration only; not KLI sample-size estimates or league-season forecasts. No observed calibration slope is used as q."
+  }
 }

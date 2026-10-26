@@ -185,7 +185,7 @@ def fig_design(s, bank):
     captions = [("optical motion capture", "CMU · 7 ball kicks", "MoVi · 83 participants"),
                 ("5 views × 5 sizes × 25/50 fps", "real 2D-detector residuals", "+ real video (digital twin)"),
                 ("RTMW-x 2D detector", "MotionAGFormer lifter", "official vs fine-tuned"),
-                ("6 joint angles · 3 moments", "bias · MAE · LoA · ICC", "→ injury-study sample size")]
+                ("6 joint angles · 3 moments", "bias · MAE · LoA · ICC", "hypothetical injury-study sensitivity")]
     for i, (x0, (title, col), cap) in enumerate(zip(xs, heads, captions)):
         fig.patches.append(FancyBboxPatch((x0, 0.03), FIG1_W, 0.94, boxstyle="round,pad=0,rounding_size=0.015",
                                           transform=fig.transFigure, fc=PANEL, ec="none", zorder=-5))

@@ -2,25 +2,37 @@
 
 *[Versión en español](README_es.md)*
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23439408.svg)](https://doi.org/10.5281/zenodo.23439408)
+[![Software v1.0.0 DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23439408.svg)](https://doi.org/10.5281/zenodo.23439408)
 
 **Roberto Martín Gutiérrez** · [ORCID 0009-0004-5724-3502](https://orcid.org/0009-0004-5724-3502) · [LinkedIn](https://www.linkedin.com/in/roberto-martín-gutiérrez-ingeniería-biomédica) · convderover@gmail.com
 
-A validation study, against optical motion capture, of the kicking biomechanics and of the **swing-leg joint loads** that a single broadcast camera can deliver in football. It is meant as a complement to the connected ball (LaLiga's xBALL): the sensor measures the ball, this measures the body.
+## Published preprint — SportRxiv, 26 October 2026
+
+**What can be measured from the broadcast? Validity of single-camera video for football-kick kinematics and swing-leg joint loads**
+
+Roberto Martín Gutiérrez · **Preprint; not peer reviewed.**
+
+[Preprint DOI: 10.51224/SportRxiv.1131](https://doi.org/10.51224/SportRxiv.1131) · [Public publication page (1131)](https://sportrxiv.org/index.php/server/preprint/view/1131) · [Published PDF](docs/preprint/Martin-Gutierrez_2026_broadcast_kick_biomechanics_preprint.pdf)
+
+The original **software and research-data release v1.0.0**, dated 17 October 2026, remains archived separately at [Zenodo: 10.5281/zenodo.23439408](https://doi.org/10.5281/zenodo.23439408). These DOIs identify different research outputs. The Zenodo archive is unchanged.
+
+A method-comparison study against optical motion capture of football-kick kinematics and **model-derived swing-leg joint loads** estimated from single-camera video under broadcast-like conditions. Ball-contact timing motivates future work with connected-ball systems, but this study did not validate a synchronised connected-ball deployment.
+
+**Scope of validation.** Benchmark evaluations use reference information for reconstruction scale and rigid alignment; the principal condition also uses reference event time and kicking side. This is a reference-assisted benchmark, not a complete independent validation of a deployed system on real match broadcasts. The simplified load model is shared by the laboratory reference and the video estimate.
 
 ![What can be measured from broadcast video](resultados/paper/fig0_graphical_abstract.png)
 
 ## Main findings
 
 - **2D detector error on broadcast shots** (RTMW-x, 200 Premier League shots): 7.6–12.9 % of player height, more than twice the error on laboratory video of the same pixel size. Model: σ(H) = √((0.063 H)² + 3.9²) px.
-- **Typical broadcast condition** (player 80 px tall, 25 fps, replay views): leg-angle errors of 16–20°. Only kicking-knee peak flexion (ICC 0.64) and backswing hip extension (ICC 0.55) reach moderate between-player agreement.
-- **Fitness for use** (literature-based criteria): from a single camera no variable is fit for comparison with laboratory norms, ranking players or monitoring an individual. Fusing three replays with a lab-learnt correction makes kicking-knee flexion fit for ranking players (ICC 0.80) and trunk leans comparable with lab norms (MAE < 5°); nothing can monitor individual changes.
-- **What matters and what does not:** camera view and knowing the contact instant matter (the connected ball's contact time cuts errors by 25 %); 50 versus 25 fps does not. Independent Gaussian noise overstates the error 1.05–1.8× with respect to real detector residuals.
-- **Digital twin:** simulating each real recording with its own camera geometry predicts the real-video error (r = 0.84, mean discrepancy 3.9°).
-- **Remedies:** fusing three replay angles raises hip-extension agreement from 0.40 to 0.78; a lifter fine-tuned on kicks under broadcast noise (tested on unseen participants and held-out broadcast residuals) cuts simulated errors from 14.7° to 8.3° and makes kicking-hip range of motion fit for ranking players on real 80-px video, but degrades real ball kicks.
-- **Joint load ("joint suffering") score:** tracks kick intensity in the laboratory (ρ = 0.79) but not recoverable from broadcast-like video (reliability λ = 0.08). Validating it as an injury predictor would need about 590 kicking-related injuries (12–24 LaLiga seasons), against 48 with a laboratory-grade measurement.
+- **Typical simulated broadcast condition** (player 80 px tall, 25 fps, known contact, replay views 45–135°): leg-angle errors of 16–20°. Only kicking-knee peak flexion (ICC 0.64) and backswing hip extension (ICC 0.55) reach moderate between-player agreement.
+- **Exploratory acceptability criteria:** no variable from a single simulated camera met the selected criteria. Three simulated replays with laboratory-learned bias correction met the between-participant ranking criterion for kicking-knee peak flexion (ICC 0.80; 95% CI 0.70–0.87) and the laboratory-comparison criterion for trunk leans (MAE < 5°). These criteria are not validated clinical or sporting decision thresholds. Repeated-session individual monitoring was not validated.
+- **View and event timing:** using the reference contact instant reduced leg-feature errors by about 25% relative to the automatic event estimate. The tested 50-versus-25-fps contrast did not improve results. Connected-ball timing accuracy and video synchronisation were not evaluated. Independent Gaussian noise overstated error 1.05–1.8× relative to real detector residuals.
+- **Digital twin:** simulating each real recording with its own camera geometry predicts aggregate real MoVi-video errors (r = 0.84, mean discrepancy 3.9°).
+- **Remedies:** fusing three replay angles raises hip-extension agreement from 0.40 to 0.78; a lifter fine-tuned on kicks under broadcast noise (tested on unseen participants and held-out broadcast residuals) cuts simulated errors from 14.7° to 8.3° and meets the exploratory ranking criterion for kicking-hip range of motion on real MoVi video at 80 px, but worsens performance on the small CMU ball-kick sample.
+- **Kick Load Index (KLI):** Spearman ρ ≈ 0.79 with ankle speed in laboratory data is an internal consistency check of a simplified model with shared kinematic inputs, not independent clinical validation. Agreement for video-derived KLI in the typical simulated condition was poor (ICC ≈ 0.09). Injury prediction has not been demonstrated. The calibration slope is not a reliability estimate; event-count illustrations use only independently assumed information fractions and do not estimate a required injury cohort or league seasons.
 
-- **Field example** (the author's own ball kicks filmed with a smartphone, 13 kicks, 4 views): strong and soft kicks are told apart by ankle speed (12.0 vs 8.7 m/s) and posture from side and rear-diagonal views but not from the front, and inverse-dynamics loads from video are implausible — the same patterns as in the validation.
+- **Field example** (the author's own ball kicks filmed with a smartphone, 13 kicks, 4 views): strong and soft kicks are told apart by ankle speed (12.0 vs 8.7 m/s) and posture from side and rear-diagonal views but not from the front, and inverse-dynamics loads from video are implausible — an illustrative plausibility check without a reference measurement, not a validity or injury-risk test.
 
 ![Field example: the author's kick with the skeleton overlay and the swing-leg load colour-coded](resultados/paper/fig11_field.png)
 
@@ -28,18 +40,27 @@ A validation study, against optical motion capture, of the kicking biomechanics 
 
 ![What the broadcast camera sees and what is reconstructed](resultados/paper/fig3_recon.png)
 
+## Study samples
+
+- **CMU:** 7 ball kicks from 2 participants.
+- **MoVi principal analysis:** 83 participants (one air kick per participant).
+- **Real MoVi video:** 162 usable recordings from 82 participants.
+- **3DSP:** 200 broadcast shots.
+- **Field example:** 13 smartphone-recorded kicks by the author, without motion-capture reference.
+
 ## Contents
 
 | Path | What it is |
 |:--|:--|
-| `docs/manuscrito/manuscript.pdf` / `.docx` | Manuscript (English) |
-| `docs/manuscrito/manuscrito_es.pdf` / `.docx` | Manuscript (Spanish) |
-| `docs/dossier/dossier_clubes.pdf` | Two-page summary for clubs (Spanish) |
+| `docs/preprint/` | Published SportRxiv preprint and supplementary materials; authoritative publication version |
+| `docs/manuscrito/manuscript.pdf` / `.docx` | Local English manuscript derivatives; see [version status](docs/PUBLICATION_VERSION.md) |
+| `docs/manuscrito/manuscrito_es.pdf` / `.docx` | Local Spanish manuscript derivatives; see [version status](docs/PUBLICATION_VERSION.md) |
+| `docs/dossier/dossier_clubes.pdf` | Spanish club summary; see [version status](docs/PUBLICATION_VERSION.md) |
 | `resultados/paper/`, `resultados/paper_es/` | All figures in English and Spanish, and the aggregated tables (`table*.csv`) |
 | `resultados/videos/` | Explanatory videos (H.264): summary, ball contact, virtual camera, 3D reconstruction, joint load, and the author's real kick in slow motion (07) |
 | `resultados/error2d_3dsp.csv` | **Broadcast 2D-residual bank** (numbers only, no images): reproduce broadcast noise without the 3DSP images |
 | `golpeo/` | Library: virtual camera, residual bank, lifter wrapper, kinematics, swing-leg inverse dynamics, agreement statistics |
-| `tests/` | 63 unit tests (`python -m pytest -q`) |
+| `tests/` | Unit tests (`python -m pytest -q`) |
 
 Pipeline:
 
@@ -54,10 +75,14 @@ CMU (7 ball kicks, 120 Hz)   MoVi (83 participants, 3D + 2 calibrated video came
   ajustar_elevador.py / evaluar_ajuste.py: kick- and broadcast-adapted lifter, cross-validated by subject
                          │
   informe_sensibilidad.py, analisis_carga.py, aceptabilidad.py (fitness for use, TOST),
-  ondas_movi.py, figuras_articulo.py (incl. SPM of the waveforms) → figures and tables (EN + ES)
+  ondas_movi.py, figuras_articulo.py (incl. custom waveform permutation analysis) → figures and tables (EN + ES)
   campo_videos.py, figuras_campo.py: field example with the author's smartphone kicks (videos not included)
   videos.py → videos · generar_documentos.py → PDF and Word documents
 ```
+
+## Publication versions
+
+The exact published preprint and supplementary PDF are preserved in `docs/preprint/`. Maintained reading versions and explanatory materials in this repository are separate derivatives. See [version status and scientific corrections](docs/PUBLICATION_VERSION.md) before using local PDFs, Word documents, figures or videos.
 
 ## Reproducing the study
 
@@ -112,7 +137,11 @@ Full references are in `docs/manuscrito/referencias.bib`.
 
 ## Citation
 
-See `CITATION.cff`. The research release v1.0.0 is archived in Zenodo: [10.5281/zenodo.23439408](https://doi.org/10.5281/zenodo.23439408). Until the article is published, please cite this software release. The preprint has been submitted to SportRxiv (submission 1123) and is awaiting moderation; its DOI is pending.
+**Preprint:** Martín Gutiérrez, R. (2026). *What can be measured from the broadcast? Validity of single-camera video for football-kick kinematics and swing-leg joint loads*. SportRxiv. https://doi.org/10.51224/SportRxiv.1131 (Posted 26 October 2026; not peer reviewed).
+
+**Original software/data release:** Martín Gutiérrez, R. (2026). *Kick biomechanics from broadcast video: a validation study of kinematics and swing-leg joint loads against optical motion capture* (v1.0.0) [Software]. Zenodo. https://doi.org/10.5281/zenodo.23439408
+
+`CITATION.cff` preserves the original software title, version, date and Zenodo DOI; its `preferred-citation` identifies the published preprint separately. Cite the preprint for the study and the archived version when using that software/data release.
 
 ## Licence
 

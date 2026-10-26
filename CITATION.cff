@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this code, the broadcast residual bank or the results, please cite it as below."
+message: "Cite the SportRxiv preprint for the study (preferred-citation). The top-level software metadata identifies the original archived v1.0.0 release; cite its Zenodo DOI when using that release."
 title: "Kick biomechanics from broadcast video: a validation study of kinematics and swing-leg joint loads against optical motion capture"
 type: software
 authors:
@@ -23,3 +23,17 @@ keywords:
   - inverse dynamics
   - injury
   - validation
+preferred-citation:
+  type: article
+  title: "What can be measured from the broadcast? Validity of single-camera video for football-kick kinematics and swing-leg joint loads"
+  authors:
+    - family-names: "Martín Gutiérrez"
+      given-names: "Roberto"
+      orcid: "https://orcid.org/0009-0004-5724-3502"
+  journal: "SportRxiv"
+  year: 2026
+  month: 10
+  date-released: "2026-10-26"
+  doi: "10.51224/SportRxiv.1131"
+  url: "https://sportrxiv.org/index.php/server/preprint/view/1131"
+  notes: "Preprint. Posted 26 October 2026; not peer reviewed."

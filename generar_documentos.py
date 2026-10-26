@@ -2,6 +2,7 @@
 
   docs/manuscrito/manuscript.md    → docs/manuscrito/manuscript.pdf (Typst) y manuscript.docx (Word, para revistas)
   docs/manuscrito/manuscrito_es.md → la misma salida en español (manuscrito_es.pdf y .docx)
+  docs/preprint/*.pdf             → copias oficiales preservadas, comprobadas por SHA-256
   docs/dossier/dossier_clubes.md   → docs/dossier/dossier_clubes.pdf (resumen de 2 páginas para clubes y LaLiga)
 
 Numeración automática: en el texto se escriben marcas {{fig:nombre}}, {{tbl:nombre}} o {{figS:nombre}} y en cada
@@ -209,7 +210,7 @@ table6_joint_load.csv      agreement of the swing-leg joint moments and Kick Loa
 table7_improvements.csv    remedies: replay fusion and bias correction
 table8_finetune.csv        official versus kick- and broadcast-adapted lifter
 table9_acceptability.csv   fitness for use: acceptability criteria and TOST
-table10_spm.csv            non-parametric SPM of the knee and hip waveforms
+table10_spm.csv            custom paired sign-flip waveform permutation outputs (not spm1d)
 resumen_resultados.json    key numbers of the kinematic analyses
 resumen_carga.json         key numbers of the joint-load analyses
 contacto_cmu.csv           ankle-speed peak versus true ball contact (CMU)
@@ -231,46 +232,16 @@ def package_outputs(out: Path):
     print("listo:", out.relative_to(ROOT))
 
 
-PREPRINT = [   # versión de preprint: sin huecos de DOI ni datos de envío a la revista
-    ("**Article type:** Original Investigation. **Running title:** Kick biomechanics from broadcast video. "
-     "**Word count (main text):** {{WORDS}}.",
-     "**Preprint, not peer reviewed.** **Running title:** Kick biomechanics from broadcast video."),
-    ("under the MIT licence and archived at Zenodo ([10.5281/zenodo.23439408](https://doi.org/10.5281/zenodo.23439408), "
-     "version v1.0.0). The complete statistical outputs are provided "
-     "as a supplementary file.",
-     "under the MIT licence and archived at Zenodo ([10.5281/zenodo.23439408](https://doi.org/10.5281/zenodo.23439408), "
-     "version v1.0.0); the complete statistical outputs are provided in the same repository."),
-    ("Supplementary file 1: GRRAS checklist. Supplementary file 2: complete statistical outputs (CSV and JSON). "
-     "Supplementary figures follow.",
-     "Supplementary Materials: GRRAS checklist. The complete statistical outputs (CSV and JSON) are available in the repository. "
-     "Supplementary figures follow."),
-    ("(checklist in the supplementary material)", "(checklist in the supplementary materials)"),
-    ("95 % confidence intervals are in Supplementary file 2.", "95 % confidence intervals are in the repository."),
-]
-
-
 def build_preprint():
-    """Preprint (SportRxiv) a partir del manuscrito en inglés: mismo texto, sin los huecos del envío."""
-    src = DOCS / "manuscrito" / "manuscript.md"
-    text = src.read_text(encoding="utf-8")
-    for a, b in PREPRINT:          # las que ya no están (p. ej. porque el DOI ya se rellenó) se saltan
-        text = text.replace(a, b)
-    if "PENDING" in text:
-        raise ValueError("quedan huecos [PENDING] en la versión de preprint")
-    name = "Martin-Gutierrez_2026_broadcast_kick_biomechanics_preprint"
-    tmp = DOCS / "manuscrito" / f"{name}.md"          # misma carpeta: rutas de figuras y bibliografía iguales
+    """Verify exact publisher copies; never rebuild them from maintained reading sources."""
+    import hashlib
     dest = DOCS / "preprint"
-    dest.mkdir(parents=True, exist_ok=True)
-    tmp.write_text(text, encoding="utf-8")
-    try:
-        build(tmp, PAPER_VARS, docx=False, lang="en")
-        _place(tmp.with_suffix(".pdf"), dest / f"{name}.pdf")
-        import shutil
-        shutil.copyfile(DOCS / "manuscrito" / "grras_checklist.pdf", dest / "Supplementary_Materials_GRRAS_checklist.pdf")
-    finally:
-        tmp.unlink(missing_ok=True)
-        tmp.with_suffix(".typ").unlink(missing_ok=True)
-        tmp.with_suffix(".pdf").unlink(missing_ok=True)
+    manifest = json.loads((dest / "published_files.json").read_text(encoding="utf-8"))
+    for name, expected in manifest["files"].items():
+        actual = hashlib.sha256((dest / name).read_bytes()).hexdigest()
+        if actual != expected:
+            raise ValueError(f"Published PDF differs from its verified publisher copy: {name}")
+    print("Published SportRxiv PDFs preserved and SHA-256 verified.")
 
 
 def main():

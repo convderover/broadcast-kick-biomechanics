@@ -1,14 +1,14 @@
 """Secondary analysis: can a joint-load ("joint suffering") score of the kicking leg be measured from broadcast
 video, and what would it take to validate it as an injury predictor?
 
-  1. Construct validity of the lab reference (inverse dynamics of the swing leg): does the load grow with
+  1. Within-model consistency of the lab reference (shared kinematic input): does the load grow with
      kick intensity (peak ankle speed, MoVi n = 83; soft vs full kicks, CMU)?
   2. Measurement validity from video: agreement of the TV estimate with the lab reference (virtual camera with
      broadcast residuals; real MoVi video).
   3. Posture surrogate: a ridge model that predicts the load from the six posture features (leave-one-subject-
      out), trained on lab data and applied to TV-estimated postures.
-  4. Feasibility of an injury study: number of injuries needed (Schoenfeld 1983) as a function of the
-     reliability of the score (regression dilution: the measured score attenuates the true hazard ratio).
+  4. Illustrative event-count sensitivity (Schoenfeld 1983) under independently assumed information
+     fractions q. Calibration slopes are not reliability estimates and are never substituted for q.
 
 Outputs in resultados/paper/: fig8_joint_load.png, table6_joint_load.csv; numbers in resultados/resumen_carga.json.
 Usage:  python analisis_carga.py
@@ -33,13 +33,20 @@ from informe_sensibilidad import INK, INK2, MUTED, NAMES, OUT, RES, SERIES, TYPI
 LOAD_SHORT = {"momento_cadera_flexor_max": "hip-flexor moment", "momento_rodilla_extensor_max": "knee-extensor moment",
               "momento_rodilla_flexor_max": "knee-flexor moment", "kli": "Kick Load Index"}
 Z = stats.norm.ppf(0.975) + stats.norm.ppf(0.80)          # α = 0.05 bilateral, potencia 80 %
-LALIGA_PLAYERS = 20 * 25                                   # 20 clubes × ~25 jugadores de primer equipo
 
 
-def events_needed(hr_per_sd: float, reliability: float) -> float:
-    """Schoenfeld (1983) para una covariable continua estandarizada, atenuada por la fiabilidad λ:
-    log-HR por DE observada = √λ · log-HR por DE verdadera  →  D = Z² / (λ · ln(HR)²)."""
-    return Z ** 2 / (reliability * np.log(hr_per_sd) ** 2)
+def events_needed(hr_per_sd: float, information_fraction: float) -> float:
+    """Hypothetical event count for an independently justified information fraction q.
+
+    Under classical additive nondifferential exposure error q can equal reliability.
+    This study does not establish that error model for KLI or estimate clinical q.
+    """
+    q = np.asarray(information_fraction, dtype=float)
+    if np.any(~np.isfinite(q)) or np.any((q <= 0) | (q > 1)):
+        raise ValueError("information fraction must be finite and in (0, 1]")
+    if not np.isfinite(hr_per_sd) or hr_per_sd <= 0 or hr_per_sd == 1:
+        raise ValueError("hazard ratio must be finite, positive and different from 1")
+    return Z ** 2 / (q * np.log(hr_per_sd) ** 2)
 
 
 def add_kli(df, ref_stats):
@@ -77,13 +84,14 @@ def main():
     movi = meta[meta.dataset == "movi"]
     summary = {"ref_mean_sd": {k: [round(v[0], 3), round(v[1], 3)] for k, v in ref_stats.items()}}
 
-    # 1. validez de constructo de la referencia de laboratorio
+    # 1. Consistencia del modelo: velocidad y carga comparten la entrada cinemática.
     construct = {}
     for k in LOAD_NAMES + ("kli",):
         rho, p = stats.spearmanr(movi.v_tobillo_max, movi[k])
         construct[k] = {"spearman_rho": float(rho), "p": float(p)}
     cmu = meta[meta.dataset == "cmu"].set_index("ensayo")
     summary["construct_movi"] = construct
+    summary["model_consistency_note"] = "Shared kinematic input; not independent validation of tissue loading or injury risk. construct_movi is retained as a legacy key."
     summary["cmu_loads"] = cmu[list(LOAD_NAMES) + ["kli", "v_tobillo_max"]].round(3).to_dict(orient="index")
 
     # 2. acuerdo desde vídeo (cámara virtual, condición típica de retransmisión; y vídeo real)
@@ -110,7 +118,7 @@ def main():
             a = agreement(g.referencia.to_numpy(), g.estimado.to_numpy())
             rows.append(dict(source=f"real video (MoVi), {size}", key=k, **a))
 
-    # 3. sustituto postural: carga ← 6 rasgos de postura (entrenado en laboratorio, LOSO)
+    # 3. LOSO solo en laboratorio; transferencia a TV ajustada con TODOS los participantes.
     X = movi[list(FEATURE_NAMES)].to_numpy(float)
     groups = movi.ensayo.to_numpy()
     surrogate = {}
@@ -133,21 +141,19 @@ def main():
                         "tv_icc": a_tv["icc21"], "tv_r": a_tv["r"], "tv_calib_slope": a_tv["calib_slope"]}
         rows.append(dict(source="posture surrogate from TV postures (MoVi, 80 px, 25 fps, 45–135°)", key=k, **a_tv))
     summary["surrogate"] = surrogate
+    summary["surrogate_transfer_note"] = "Laboratory LOSO results are held out; the transfer model is fitted on all MoVi laboratory observations and its TV agreement is exploratory, not held out."
     table = pd.DataFrame(rows)
     table["feature"] = table.key.map(LOAD_SHORT)
     table["icc_class"] = table.icc21.map(koo_li)
     table.round(4).to_csv(OUT / "table6_joint_load.csv", index=False)
 
-    # 4. viabilidad de un estudio prospectivo de lesiones
-    lam = np.linspace(0.02, 1.0, 300)
-    best_tv = table[table.source.str.startswith("virtual camera (movi)")].set_index("key").calib_slope.clip(lower=0.02)
-    best_sur = surrogate["kli"]["tv_calib_slope"]
-    feas = {}
-    for hr in (1.3, 1.5, 2.0):
-        feas[str(hr)] = {"lab_events": float(events_needed(hr, 1.0)),
-                         "tv_kli_events": float(events_needed(hr, max(best_tv.get("kli", 0.02), 0.02)))}
-    summary["feasibility"] = feas
-    summary["laliga_players"] = LALIGA_PLAYERS
+    # 4. Escenarios hipotéticos independientes de las pendientes observadas.
+    q = np.linspace(0.05, 1.0, 300)
+    assumed_q = np.array([1.0, 0.5, 0.2, 0.1])
+    feas = {"hr_per_true_sd": 1.5, "assumed_information_fractions": assumed_q.tolist(),
+            "events_rounded_up": np.ceil(events_needed(1.5, assumed_q)).astype(int).tolist(),
+            "note": "Illustration only; not KLI sample-size estimates or league-season forecasts. No observed calibration slope is used as q."}
+    summary["hypothetical_event_sensitivity"] = feas
 
     # figura
     fig, axes = plt.subplots(1, 3, figsize=(7.6, 3.5))
@@ -157,7 +163,7 @@ def main():
     rho = construct["momento_cadera_flexor_max"]["spearman_rho"]
     a.set_xlabel("Peak kicking-ankle speed (m/s)")
     a.set_ylabel("Peak hip-flexor moment (N·m/kg)")
-    a.set_title(f"a  Lab reference (ρ = {rho:.2f})", loc="left")
+    a.set_title("a  Within-model consistency", loc="left")
     a.legend(fontsize=6.5, loc="upper center", bbox_to_anchor=(0.5, -0.25), frameon=False)
     b = axes[1]
     g = typical[(typical.dataset == "movi") & (typical.rasgo == "momento_cadera_flexor_max")]
@@ -174,26 +180,14 @@ def main():
     b.set_ylabel("From 80-px video (N·m/kg)")
     b.legend(fontsize=6.5, loc="upper center", bbox_to_anchor=(0.5, -0.25), frameon=False, markerscale=1.6)
     c = axes[2]
-    for i, hr in enumerate((1.3, 1.5, 2.0)):
-        c.plot(lam, events_needed(hr, lam), color=SERIES[i], lw=1.8, label=f"HR = {hr} per SD")
-        c.text(1.01, events_needed(hr, 1.0), f"HR {hr}", fontsize=6.5, color=INK2, va="center",
-               )
-    seasons = []
-    for rate, ls in ((0.10, "--"), (0.05, ":")):
-        seasons += c.plot([0, 1], [LALIGA_PLAYERS * rate] * 2, color=MUTED, ls=ls, lw=1.1,
-                          label=f"1 LaLiga season, {rate:.2f} inj./player")
-    c.legend(handles=seasons, fontsize=6.5, loc="upper center", bbox_to_anchor=(0.5, -0.25), frameon=False)
-    kli_tv = max(float(best_tv.get("kli", np.nan)), 0.02)
-    for x, txt in ((kli_tv, "inverse\ndynamics"), (best_sur, "posture\nsurrogate")):
-        c.axvline(x, color=INK, lw=0.9, ls="-" if x == kli_tv else "-.")
-        c.text(x + 0.015, 4500, f"{txt}\nλ = {x:.2f}", fontsize=6, color=INK, va="top",
-               bbox=dict(fc="white", ec="none", alpha=0.85, pad=0.5))
+    c.plot(q, events_needed(1.5, q), color=SERIES[0], lw=1.8)
+    c.scatter(assumed_q, events_needed(1.5, assumed_q), color=SERIES[1], s=15)
     c.set_yscale("log")
-    c.set_ylim(10, 5000)
-    c.set_xlabel("Reliability λ of the score")
-    c.set_ylabel("Injuries needed\n(α 0.05, power 0.8)")
-    c.set_title("c  Injury-study size", loc="left")
-    c.set_xlim(0, 1.12)
+    c.set_ylim(40, 1100)
+    c.set_xlabel("Assumed information fraction q")
+    c.set_ylabel("Hypothetical events (HR 1.5)")
+    c.set_title("c  Illustration, not a KLI prediction", loc="left")
+    c.set_xlim(0, 1.05)
     fig.tight_layout()
     save_fig(fig, "fig8_joint_load.png")
     plt.close(fig)

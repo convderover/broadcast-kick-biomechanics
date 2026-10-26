@@ -309,8 +309,8 @@ def video_carga():
     loads_tv = kick_loads(est8, fps_v, 75.0, contact=int(round(cf / fps * fps_v)), side=side, cutoff_hz=0.35 * fps_v)
     lo, hi = s["c"] - 48, s["c"] + 4
     with Mp4(OUT / "06_carga_articular.mp4", 24) as vid:
-        for f in title_card("¿Cuánto sufren cadera y rodilla?", "Dinámica inversa de la pierna de golpeo\n"
-                            "laboratorio frente a lo que se puede estimar desde la TV", fps=24, seconds=3):
+        for f in title_card("Momentos articulares del modelo", "Dinámica inversa simplificada de la pierna de golpeo\n"
+                            "acuerdo laboratorio–TV; sin validación de carga tisular ni riesgo", fps=24, seconds=3):
             vid.write(f)
         for t in range(lo, hi):
             fig = plt.figure(figsize=(12.8, 7.2), dpi=100)
@@ -467,14 +467,14 @@ def video_resumen():
                 vid.write(cv2.resize(img, size)[..., ::-1])   # BGR (OpenCV) → RGB
 
         cards("Biomecánica del disparo\ndesde la retransmisión", "¿Qué se puede medir de verdad desde la tele?", 3.5)
-        cards("El balón conectado mide el balón.\nNosotros medimos el cuerpo.", "LaLiga EA Sports · xBALL 2026/27", 3.5)
+        cards("Comparación con captura óptica", "escala y alineamiento de referencia · contacto y pierna conocidos", 3.5)
         for name in ("01_contacto_balon.mp4", "02_camara_tv_virtual.mp4", "04_reconstruccion_3d.mp4",
                      "06_carga_articular.mp4"):
             if (OUT / name).exists():
                 clip(name)
         for text, sub in cartelas:
             cards(text, sub, 4.5)
-        cards("Código abierto · validado frente a captura óptica", "CMU · MoVi · 3DSP · RTMW · MotionAGFormer", 3.0)
+        cards("Preprint SportRxiv · sin revisión por pares", "DOI 10.51224/SportRxiv.1131\nCMU · MoVi · 3DSP · RTMW · MotionAGFormer", 3.0)
 
 
 def main():

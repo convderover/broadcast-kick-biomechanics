@@ -1,0 +1,5 @@
+# Preserve binary publication copies regardless of global PDF diff/text settings.
+*.pdf binary
+*.docx binary
+*.png binary
+*.mp4 binary

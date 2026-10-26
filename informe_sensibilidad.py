@@ -325,7 +325,8 @@ def fig_real_video():
     a.set_xticks(range(4), ["native\n(~300 px)", "120 px", "80 px", "50 px"])
     a.set_ylabel("MAE vs motion capture (°)")
     a.set_ylim(0, None)
-    a.set_title(f"a  Real video (MoVi, {post.sujeto.nunique()} subjects × 2 cameras)", loc="left")
+    recordings = post[["sujeto", "camara"]].drop_duplicates().shape[0]
+    a.set_title(f"a  Real video: {recordings} recordings, {post.sujeto.nunique()} people", loc="left")
     a.legend(fontsize=6.5, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2, frameon=False)
     twin = None
     if twin_path.exists():

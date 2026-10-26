@@ -2,23 +2,48 @@
 
 *[English version](README.md)* · Roberto Martín Gutiérrez · [ORCID 0009-0004-5724-3502](https://orcid.org/0009-0004-5724-3502)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23439408.svg)](https://doi.org/10.5281/zenodo.23439408)
+[![DOI del software v1.0.0](https://zenodo.org/badge/DOI/10.5281/zenodo.23439408.svg)](https://doi.org/10.5281/zenodo.23439408)
 
-La versión de investigación **v1.0.0** está archivada en Zenodo: [10.5281/zenodo.23439408](https://doi.org/10.5281/zenodo.23439408). Véase `CITATION.cff` para citarla. El preprint se ha enviado a SportRxiv (envío 1123) y está en moderación; su DOI sigue pendiente.
+## Preprint publicado — SportRxiv, 26 de octubre de 2026
 
-Validación, frente a captura óptica, de los rasgos del golpeo (rodilla, cadera, tronco) y de la **carga articular de la pierna de golpeo** estimados desde una sola cámara en condiciones de retransmisión. Aplicación prevista: LaLiga EA Sports e Hypermotion, como complemento del balón conectado (xBALL). El sensor mide el balón; esto mide el cuerpo.
+**What can be measured from the broadcast? Validity of single-camera video for football-kick kinematics and swing-leg joint loads**
+
+Roberto Martín Gutiérrez · **Preprint no revisado por pares.**
+
+[DOI del preprint: 10.51224/SportRxiv.1131](https://doi.org/10.51224/SportRxiv.1131) · [Página pública (1131)](https://sportrxiv.org/index.php/server/preprint/view/1131) · [PDF publicado](docs/preprint/Martin-Gutierrez_2026_broadcast_kick_biomechanics_preprint.pdf)
+
+La versión original del **software y los datos de investigación v1.0.0**, del 17 de octubre de 2026, sigue archivada por separado en [Zenodo: 10.5281/zenodo.23439408](https://doi.org/10.5281/zenodo.23439408). Los dos DOI identifican productos de investigación distintos. El archivo de Zenodo se conserva sin cambios.
+
+Estudio de comparación de métodos frente a captura óptica de los rasgos del golpeo (rodilla, cadera, tronco) y de las **cargas articulares estimadas mediante un modelo de la pierna de golpeo** desde una cámara en condiciones de tipo retransmisión. La sincronización con el balón conectado motiva trabajo futuro, pero no se ha validado aquí un despliegue con ese sistema.
 
 ## 🟢 En sencillo
 
 ¿Puede un ordenador, viendo un disparo por la tele, medir bien cómo golpea el jugador y cuánto "sufren" su cadera y su rodilla? Para saberlo hay que comparar con golpeos en los que se conoce la verdad, porque se grabaron en laboratorio con marcadores. Lo hacemos de tres maneras:
 
-1. **Cámara de TV virtual:** 90 golpeos de laboratorio (7 golpeos reales de balón y 83 participantes de MoVi) "filmados" desde 5 ángulos, con el jugador de 400 a 50 píxeles y a 25 o 50 fps. A lo que ve la cámara se le añade el error real del detector, medido en 200 disparos de la Premier League.
-2. **Vídeo real:** grabaciones con la 3D de laboratorio sincronizada (MoVi, 83 personas utilizables, 2 cámaras), reducidas al tamaño de un jugador en TV.
+1. **Cámara de TV virtual:** 90 golpeos de laboratorio (7 golpeos con balón de 2 participantes de CMU y un golpeo al aire por cada uno de los 83 participantes del análisis principal de MoVi) "filmados" desde 5 ángulos, con el jugador de 400 a 50 píxeles y a 25 o 50 fps. A lo que ve la cámara se le añade el error real del detector, medido en 200 disparos de la Premier League.
+2. **Vídeo real:** grabaciones con la 3D de laboratorio sincronizada (MoVi, 162 grabaciones utilizables de 82 participantes, hasta 2 cámaras por persona), reducidas al tamaño de un jugador en TV.
 3. **Gemelo digital:** cada grabación real se simula con su misma geometría para comprobar que el simulador predice el error real.
 
-Para la carga articular, la pierna que golpea va por el aire, así que sus momentos en cadera y rodilla se calculan con dinámica inversa sin plataformas de fuerza. Así hay una "verdad" de laboratorio con la que validar lo que se mide desde la tele.
+Para la carga articular se aplica el mismo modelo simplificado de dinámica inversa de la pierna en vuelo a la captura óptica y a la reconstrucción del vídeo. Esto permite estudiar la concordancia de la cadena de medida, sin validar fuerzas musculares, cargas tisulares ni riesgo de lesión de forma independiente.
 
-**Lo que no es:** un predictor de lesiones validado. Eso exige datos médicos de clubes. Aquí se calcula cuántas lesiones habría que observar para validarlo, en función de la fiabilidad medida.
+**Condiciones de evaluación:** se utiliza información de referencia para la escala y el alineamiento rígido; la condición principal utiliza también el instante del evento y la pierna de golpeo de referencia. Los resultados son un banco de pruebas asistido por referencia, no una validación independiente completa de un sistema desplegado sobre retransmisiones reales.
+
+## Resultados principales y límites
+
+- **Error 2D en retransmisiones:** 7,6–12,9 % de la altura del jugador, medido en 200 disparos de 3DSP. Modelo: σ(H) = √((0,063 H)² + 3,9²) px.
+- **Condición simulada típica:** jugador de 80 px, 25 fps, contacto conocido y vistas de repetición de 45–135°. Errores de ángulos de pierna de 16–20°; flexión máxima de rodilla de golpeo ICC 0,64 y extensión de cadera ICC 0,55.
+- **Criterios exploratorios de aceptabilidad:** ninguna variable de una sola cámara simulada cumplió los criterios seleccionados. Con tres repeticiones simuladas y corrección de sesgo aprendida en laboratorio, la flexión máxima de rodilla cumplió el criterio de clasificación entre participantes (ICC 0,80; IC del 95 % 0,70–0,87), y las inclinaciones del tronco el de comparación con laboratorio (EAM < 5°). No son umbrales validados para decisiones clínicas o deportivas; no se validó el seguimiento individual entre sesiones.
+- **Vista e instante del evento:** conocer el contacto de referencia redujo aproximadamente un 25 % los errores de rasgos de pierna frente a inferirlo automáticamente. No se evaluaron el error temporal del balón conectado ni su sincronización con el vídeo. El contraste de 50 frente a 25 fps no mejoró los resultados; el ruido gaussiano independiente sobrestimó el error entre 1,05 y 1,8 veces frente a residuos reales.
+- **Gemelo digital:** predijo el error agregado del vídeo real de MoVi (r = 0,84; discrepancia media 3,9°).
+- **Mejoras exploradas:** la fusión de tres vistas elevó el acuerdo de extensión de cadera de 0,40 a 0,78. Adaptar el elevador redujo el error simulado de 14,7° a 8,3° y permitió cumplir el criterio exploratorio de clasificación para el rango de movimiento de cadera en vídeo real MoVi a 80 px, pero empeoró el resultado en la pequeña muestra CMU con balón.
+- **Kick Load Index (KLI):** su correlación con la velocidad del tobillo en laboratorio (ρ de Spearman ≈ 0,79) es una comprobación de consistencia interna de un modelo simplificado con entradas cinemáticas compartidas. No es validación clínica independiente. La concordancia del KLI obtenido desde vídeo en la condición simulada típica fue baja (ICC ≈ 0,09); no se ha demostrado capacidad predictiva de lesiones. La pendiente de calibración no es una estimación de fiabilidad. Solo se presentan escenarios hipotéticos de eventos con fracciones de información asumidas independientemente, sin estimar una cohorte de lesiones ni temporadas de liga.
+- **Ejemplo de campo:** 13 golpeos del autor grabados con móvil desde cuatro vistas, sin referencia de captura óptica. La separación entre golpeos fuertes y suaves en determinadas vistas es ilustrativa; no acredita validez ni predicción de lesiones.
+
+![Ejemplo de campo con los golpeos del autor](resultados/paper_es/fig11_field.png)
+
+![Diseño del estudio](resultados/paper_es/fig1_design.png)
+
+![Reconstrucción desde distintas vistas](resultados/paper_es/fig3_recon.png)
 
 ## 🗺️ El mapa técnico
 
@@ -39,7 +64,7 @@ gemelo_movi.py: simulación de cada toma real con su geometría                 
                        │
 informe_sensibilidad.py → figuras de resultados, tablas 2–7, resumen_resultados.json
 ondas_movi.py + figuras_articulo.py → fig1_design (diseño), fig2_model (esqueleto y momentos),
-                          fig3_recon (reconstrucción, curvas medias y SPM), figS3_bland (Bland–Altman)
+                          fig3_recon (reconstrucción, curvas medias y permutación propia), figS3_bland (Bland–Altman)
     (todas las figuras salen en inglés en resultados/paper/ y en español en resultados/paper_es/)
 analisis_carga.py       → fig8_joint_load.png, table6_joint_load.csv, resumen_carga.json
 aceptabilidad.py        → table9_acceptability.csv (para qué uso sirve cada variable: criterios de la literatura y TOST)
@@ -64,10 +89,15 @@ Módulos de `golpeo/`:
 - `degradacion`, `error2d`: degradación de imágenes y emparejamiento de COCO con 3DSP.
 - `video`: escritura en MP4 H.264 y texto Unicode.
 
+## Versiones de la publicación
+
+`docs/preprint/` conserva los PDF exactos del preprint y del suplemento publicados. Los manuscritos de lectura y materiales explicativos del repositorio son derivados independientes. Consulta el [estado de versiones y correcciones científicas](docs/PUBLICATION_VERSION.md) antes de utilizar los PDF locales, documentos Word, figuras o vídeos.
+
 ## Cómo reproducirlo
 
 ```bash
 pip install -r requirements.txt
+pip install torch==2.10.0 --index-url https://download.pytorch.org/whl/cu128
 pip install rtmlib==0.0.16 --no-deps
 python descargar_recursos.py            # ~500 MB: modelos, 3DSP y CMU
 python descargar_movi.py 3d             # 3,8 GB: 3D de MoVi (licencia no comercial)
@@ -113,3 +143,17 @@ No redistribuyas datos ni imágenes:
 - **CMU:** libre para investigación, citando la base.
 
 Hay que citar CMU, MoVi, 3DSP/AutoSoccerPose (y SoccerNet), RTMW/YOLOX (OpenMMLab) y MotionAGFormer. Las referencias están en `docs/manuscrito/referencias.bib`.
+
+## Citación
+
+**Preprint:** Martín Gutiérrez, R. (2026). *What can be measured from the broadcast? Validity of single-camera video for football-kick kinematics and swing-leg joint loads*. SportRxiv. https://doi.org/10.51224/SportRxiv.1131 (Publicado el 26 de octubre de 2026; no revisado por pares).
+
+**Versión original del software/datos:** Martín Gutiérrez, R. (2026). *Kick biomechanics from broadcast video: a validation study of kinematics and swing-leg joint loads against optical motion capture* (v1.0.0) [Software]. Zenodo. https://doi.org/10.5281/zenodo.23439408
+
+`CITATION.cff` mantiene título, versión, fecha y DOI de Zenodo del software original; `preferred-citation` identifica por separado el preprint. Cita el preprint al referirte al estudio y la versión archivada al utilizar esa versión del software o los datos.
+
+## Licencia y autoría
+
+Código: MIT (`LICENSE`). Texto, figuras y vídeos: CC BY 4.0.
+
+Investigación realizada de forma independiente por el autor, sin afiliación ni financiación institucional.
